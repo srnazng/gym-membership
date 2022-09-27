@@ -3,7 +3,15 @@ package models;
 public class MemberDatabase {
     private Member [] mlist;
     private int size;
+    public MemberDatabase(){
+        size = 0;
+    }
     private int find(Member member) {
+        final int NOT_FOUND = -1;
+
+        for (int i = 0; i < size; i++){
+
+        }
         return 0;
     }
     private void grow() { }
