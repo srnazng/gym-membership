@@ -15,6 +15,26 @@ public class Member implements Comparable<Member>{
         this.location = location;
     }
 
+    public String getFname() {
+        return fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public Date getExpire() {
+        return expire;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
     /**
      * Represent current member as string
      * @return string representing member

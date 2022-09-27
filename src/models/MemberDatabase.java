@@ -3,6 +3,7 @@ package models;
 public class MemberDatabase {
     private Member [] mlist;
     private int size;
+    public static final int GROWTH_FACTOR = 4;
     public MemberDatabase(){
         size = 0;
     }
