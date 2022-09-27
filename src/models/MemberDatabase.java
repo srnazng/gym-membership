@@ -6,17 +6,53 @@ public class MemberDatabase {
     public static final int GROWTH_FACTOR = 4;
     public MemberDatabase(){
         size = 0;
+        mlist = new Member [4];
     }
+
+    /**
+     * Finds index of a member in the member database
+     * @param member to be found
+     * @return index of the member in member list, or -1 if member doesn't exist.
+     */
     private int find(Member member) {
         final int NOT_FOUND = -1;
 
         for (int i = 0; i < size; i++){
-
+            if (member.equals(mlist[i])){
+                return i;
+            }
         }
-        return 0;
+        return NOT_FOUND;
     }
-    private void grow() { }
+
+    /**
+     * Grow the member list by 4
+     */
+    private void grow() {
+        Member [] mcopy = new Member [mlist.length + GROWTH_FACTOR];
+        for (int i = 0; i < mlist.length; i++) {
+            mcopy[i] = mlist[i];
+        }
+        mlist = mcopy;
+    }
+
+    /**
+     * Add a member to the database, and check if it's a valid member
+     * @param member to be added
+     * @return boolean representing if member is valid
+     */
     public boolean add(Member member) {
+
+        //Check if member is valid here
+        
+
+        mlist[size] = member;
+        size++;
+
+        if (size == mlist.length){
+            grow();
+        }
+
         return true;
     }
     public boolean remove(Member member) {
