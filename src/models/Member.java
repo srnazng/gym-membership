@@ -21,8 +21,20 @@ public class Member implements Comparable<Member>{
         return false;
     }
 
+    /**
+     *
+     * @param member the object to be compared.
+     * @return negative if member is before, 0 if equal, positive if after
+     */
     @Override
     public int compareTo(Member member) {
-        return 0;
+        int last_compare = lname.compareTo(member.lname);
+        if(last_compare != 0){
+            return last_compare;
+        }
+        return fname.compareTo(member.fname);
+    }
+    public static void main(String[] args){
+
     }
 }
