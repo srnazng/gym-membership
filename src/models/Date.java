@@ -21,6 +21,7 @@ public class Date implements Comparable<Date> {
     public static final int QUADRENNIAL = 4;
     public static final int CENTENNIAL = 100;
     public static final int QUARTERCENTENNIAL = 400;
+    public static final int ADULT_YEAR = 18;
 
     private int day;
     public Date() {
@@ -42,6 +43,16 @@ public class Date implements Comparable<Date> {
         this.year = Integer.parseInt(dateParts[2]);
         this.month = Integer.parseInt(dateParts[0]);
         this.day = Integer.parseInt(dateParts[1]);
+    }
+
+    /**
+     *
+     * @param calDate take a calendar instance and create a date object
+     */
+    public Date(Calendar calDate){
+        this.year = calDate.get(Calendar.YEAR);
+        this.month = calDate.get(Calendar.MONTH);
+        this.day = calDate.get(Calendar.DAY_OF_MONTH);
     }
 
     /**
@@ -99,6 +110,26 @@ public class Date implements Comparable<Date> {
     }
 
     /**
+     * Sees if this date is eighteen years ago or earlier
+     * @return
+     */
+    public boolean isEighteen(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR, -ADULT_YEAR);
+        Date minusEighteen = new Date(calendar);
+        return this.compareTo(minusEighteen) == -1;
+    }
+
+    /**
+     * Checks if day is in the past
+     * @return
+     */
+    public boolean isPast(){
+        Date today = new Date(Calendar.getInstance());
+        return this.compareTo(today) == -1;
+    }
+
+    /**
      * Check whether current date is in a leap year
      * @return  Whether current year is a leap year
      */
@@ -120,6 +151,7 @@ public class Date implements Comparable<Date> {
             return false;
         }
     }
+
 
     // Testbed main
     public static void main(String[] args){

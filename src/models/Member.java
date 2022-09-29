@@ -1,4 +1,5 @@
 package models;
+import java.util.Calendar;
 
 public class Member implements Comparable<Member>{
     private String fname;
@@ -55,8 +56,8 @@ public class Member implements Comparable<Member>{
     public boolean equals(Object obj) {
         Member member = (Member) obj;
 
-        return fname.toLowerCase().equals(member.fname.toLowerCase())
-                && lname.toLowerCase().equals(member.lname.toLowerCase())
+        return fname.equalsIgnoreCase(member.fname)
+                && lname.equalsIgnoreCase(member.lname)
                 && dob.getYear() == member.dob.getYear()
                 && dob.getMonth() == member.dob.getMonth()
                 && dob.getDay() == member.dob.getDay();
