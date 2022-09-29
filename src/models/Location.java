@@ -14,4 +14,15 @@ public enum Location {
         this.zipCode = zipCode;
         this.county = county;
     }
+
+    public static Location toLocation(String loc){
+
+        for (Location location : values()) {
+            if (loc.equalsIgnoreCase(location.name())) {
+                return location;
+            }
+        }
+
+        return null;
+    }
 }

@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="set up classes">
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="serena edits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Time.java" afterDir="false" />
     </list>
-    <list id="25898ea6-607d-4620-9ea1-02464bea4642" name="Changes by Jackson" comment="Jackson changes">
+    <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="">
+      <change beforePath="$PROJECT_DIR$/src/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,21 +24,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/models/MemberDatabase.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="7" end1="7" start2="8" end2="9" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-        <range start1="8" end1="8" start2="10" end2="16" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-        <range start1="12" end1="13" start2="20" end2="23" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-        <range start1="14" end1="15" start2="24" end2="25" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-        <range start1="16" end1="17" start2="26" end2="43" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-        <range start1="18" end1="18" start2="44" end2="55" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/models/Member.java">
       <ranges>
-        <range start1="16" end1="16" start2="16" end2="36" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="57" end1="57" start2="77" end2="79" changelist="25898ea6-607d-4620-9ea1-02464bea4642" />
+        <range start1="1" end1="1" start2="1" end2="2" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="57" end1="59" start2="58" end2="60" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="77" end1="78" start2="78" end2="78" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
       </ranges>
     </file>
   </component>
@@ -52,19 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RunProject1">
     <configuration name="Date" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="models.Date" />
       <module name="CS213_Project1" />
@@ -78,8 +67,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RunProject1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="models.RunProject1" />
+      <module name="CS213_Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunProject1" />
         <item itemvalue="Application.Date" />
       </list>
     </recent_temporary>
@@ -114,7 +117,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664310277714</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="serena edits">
+      <created>1664312877847</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664312877847</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Jackson changes">
+      <created>1664312886257</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664312886257</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="set up classes" />
+    <MESSAGE value="serena edits" />
     <MESSAGE value="Jackson changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Jackson changes" />
   </component>

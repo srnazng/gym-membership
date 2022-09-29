@@ -4,6 +4,7 @@ public class MemberDatabase {
     private Member [] mlist;
     private int size;
     public static final int GROWTH_FACTOR = 4;
+    public static final int NOT_FOUND = -1;
     public MemberDatabase(){
         size = 0;
         mlist = new Member [4];
@@ -15,8 +16,6 @@ public class MemberDatabase {
      * @return index of the member in member list, or -1 if member doesn't exist.
      */
     private int find(Member member) {
-        final int NOT_FOUND = -1;
-
         for (int i = 0; i < size; i++){
             if (member.equals(mlist[i])){
                 return i;
@@ -62,4 +61,10 @@ public class MemberDatabase {
     public void printByCounty() { } //sort by county and then zipcode
     public void printByExpirationDate() { } //sort by the expiration date
     public void printByName() { } //sort by last name and then first name
+    public boolean contains(Member member){
+        if(find(member) == -1){
+            return false;
+        }
+        return true;
+    }
 }
