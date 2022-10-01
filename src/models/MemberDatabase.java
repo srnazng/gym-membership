@@ -36,31 +36,96 @@ public class MemberDatabase {
     }
 
     /**
-     * Add a member to the database, and check if it's a valid member
+     * Add a member to the database, and check if it's already in the database
      * @param member to be added
-     * @return boolean representing if member is valid
+     * @return false if member already exists in database
      */
     public boolean add(Member member) {
-
-        //Check if member is valid here
-        
-
+        if (contains(member)) return false;
         mlist[size] = member;
         size++;
+        if (size == mlist.length) grow();
+        return true;
+    }
 
-        if (size == mlist.length){
-            grow();
+    /**
+     *
+     * @param member to be removed
+     * @return false if member does not exist
+     */
+    public boolean remove(Member member) {
+        if (!contains(member)) return false;
+        int mindex = find(member);
+        if (mindex == -1) return false;
+
+        for (int i = mindex; i < size; i++){
+            mlist[i] = mlist[i + 1];
+        }
+        return true;
+    }
+
+    public void print () {
+        for (Member member : mlist){
+            System.out.println(member);
+        }
+    } //print the array contents as is
+
+
+    public void printByCounty() {
+        Member [] copy = mlist;
+        for (int i = 0; i < size - 1; i++){
+            for (int j = 0; j < size - 1 - i; i++){
+                Member memi = copy[i];
+                Member memj = copy[j];
+                if (memi.compareCounty(memj) > 0){
+                    copy[i] = memj;
+                    copy[j] = memi;
+                }
+            }
         }
 
-        return true;
-    }
-    public boolean remove(Member member) {
-        return true;
-    }
-    public void print () { } //print the array contents as is
-    public void printByCounty() { } //sort by county and then zipcode
-    public void printByExpirationDate() { } //sort by the expiration date
-    public void printByName() { } //sort by last name and then first name
+        for (Member member : copy){
+            System.out.println(member);
+        }
+    } //sort by county and then zipcode
+
+    public void printByExpirationDate() {
+        Member [] copy = mlist;
+        for (int i = 0; i < size - 1; i++){
+            for (int j = 0; j < size - 1 - i; i++){
+                Member memi = copy[i];
+                Member memj = copy[j];
+                if (memi.compareDate(memj) > 0){
+                    copy[i] = memj;
+                    copy[j] = memi;
+                }
+            }
+        }
+
+        for (Member member : copy){
+            System.out.println(member);
+        }
+    } //sort by the expiration date
+
+    public void printByName() {
+        Member [] copy = mlist;
+        for (int i = 0; i < size - 1; i++){
+            for (int j = 0; j < size - 1 - i; i++){
+                Member memi = copy[i];
+                Member memj = copy[j];
+                if (memi.compareTo(memj) > 0){
+                    copy[i] = memj;
+                    copy[j] = memi;
+                }
+            }
+        }
+
+        for (Member member : copy){
+            System.out.println(member);
+        }
+    } //sort by last name and then first name
+
+
     public boolean contains(Member member){
         if(find(member) == -1){
             return false;

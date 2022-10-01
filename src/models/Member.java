@@ -77,6 +77,35 @@ public class Member implements Comparable<Member>{
         return fname.compareTo(member.fname);
     }
 
+    /**
+     *
+     * @param member
+     * @return positive if member comes after other member when sorted by county and zip code
+     */
+    public int compareCounty(Member member){
+        // compare county
+        String county1 = location.getCounty();
+        String county2 = member.location.getCounty();
+        int countComp = county1.compareToIgnoreCase(county2);
+        if (countComp != 0) {
+            return countComp;
+        }
+        // compare zip code
+        String zip1 = location.getZipCode();
+        String zip2 = member.location.getZipCode();
+        return zip1.compareToIgnoreCase(zip2);
+    }
+
+    /**
+     *
+     * @param member
+     * @return 1 if member comes after other member when sorted by date
+     */
+    public int compareDate(Member member){
+        return expire.compareTo(member.expire);
+    }
+
+
     public static void main(String[] args){
 
     }
