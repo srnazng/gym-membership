@@ -15,6 +15,14 @@ public enum Location {
         this.county = county;
     }
 
+    public String getCounty() {
+        return county;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
     public static Location toLocation(String loc){
 
         for (Location location : values()) {

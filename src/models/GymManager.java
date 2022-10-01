@@ -3,8 +3,18 @@ package models;
 import java.util.Scanner;
 
 public class GymManager {
+    public static final String RUNNING_MSG = "Gym Manager running...";
+    public static final String DOB_ERROR = "DOB ";
+    public static final String EXPIRATION_ERROR = "Expiration date ";
+    public static final int A_COMMAND_LENGTH = 6;
+    public static final int FNAME_INDEX = 1;
+    public static final int LNAME_INDEX = 2;
+    public static final int DOB_INDEX = 3;
+    public static final int EXP_INDEX = 4;
+    public static final int LOC_INDEX = 5;
+
     protected boolean run(){
-        System.out.println("Gym Manager running...");
+        System.out.println(RUNNING_MSG);
         Scanner sc = new Scanner(System.in);
         String s = "";
 
@@ -25,11 +35,10 @@ public class GymManager {
     private void runCommand(String command, String line, MemberDatabase database){
         switch (command) {
             case "A":
-                // add member
                 handleAddMember(line, database);
                 break;
             case "R":
-                // cancel membership
+                handleCancelMembership(line, database);
                 break;
             case "P":
                 // display list of members without sorting
@@ -57,57 +66,67 @@ public class GymManager {
         }
     }
 
+    /**
+     * Command A
+     * @param command
+     * @param db
+     * @return member added success
+     */
     private boolean handleAddMember(String command, MemberDatabase db){
         String[] parts = command.split(" ");
+        if(parts.length < A_COMMAND_LENGTH) return false;
 
-        if(parts.length < 6){
+        Date dob = new Date(parts[DOB_INDEX]);
+        Date expire = new Date(parts[EXP_INDEX]);
+        String error = checkDateErrors(dob, parts[DOB_INDEX], expire, parts[EXP_INDEX]);
+        if(error != null){
+            System.out.println(error);
             return false;
         }
 
-        String fname = parts[1];
-        String lname = parts[2];
-
-        Date dob = new Date(parts[3]);
-        // TODO: make error messages constants
-        if(!dob.isValid()){
-            System.out.println("DOB: " + parts[3] + ": invalid calendar date!");
-            return false;
-        }
-        if(!dob.isPast()){
-            System.out.println("DOB: " + parts[3] + ": cannot be today or a future date!");
-            return false;
-        }
-        if(!dob.isEighteen()){
-            System.out.println("DOB: " + parts[3] + ": must be 18 or older to join!");
-            return false;
-        }
-
-        Date expire = new Date(parts[4]);
-        if(!expire.isValid()){
-            System.out.println("Expiration date " + parts[4] + ": invalid calendar date!");
-        }
-
-        Location location = Location.toLocation(parts[5]);
+        Location location = Location.toLocation(parts[LOC_INDEX]);
         if(location == null) {
-            System.out.println(parts[4] + ": invalid location!");
+            System.out.println(parts[LOC_INDEX] + ": invalid location!");
             return false;
         }
 
-        Member member = new Member(fname, lname, dob, expire, location);
-
+        Member member = new Member(parts[FNAME_INDEX], parts[LNAME_INDEX], dob, expire, location);
         if(db.contains(member)) {
-            System.out.println(fname + " " + lname + " is already in the database.");
+            System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " is already in the database.");
             return false;
         }
 
+        if(db.add(member)){
+            System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " added.");
+        }
         return true;
     }
 
-    private String isValidDob(){
-        return null;
+    private boolean handleCancelMembership(String command, MemberDatabase db){
+        return true;
     }
 
-    private String isValidExpiration(){
+    /**
+     * Return errors if DOB or expiration date cannot be used for member
+     * @param dob
+     * @param dobText
+     * @param expiration
+     * @param expText
+     * @return  error String
+     */
+    private String checkDateErrors(Date dob, String dobText, Date expiration, String expText){
+        if(!dob.isValid()){
+            return DOB_ERROR + dobText + ": invalid calendar date!";
+        }
+        if(!dob.isPast()){
+            return DOB_ERROR + dobText + ": cannot be today or a future date!";
+        }
+        if(!dob.isEighteen()){
+            return DOB_ERROR + dobText + ": must be 18 or older to join!";
+        }
+        if(!expiration.isValid()){
+            return EXPIRATION_ERROR + expText + ": invalid calendar date!";
+        }
         return null;
     }
 }

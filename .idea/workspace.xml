@@ -8,12 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
     </list>
-    <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="">
-      <change beforePath="$PROJECT_DIR$/src/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Date.java" afterDir="false" />
+    <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson">
       <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +23,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/models/Member.java">
+    <file path="$PROJECT_DIR$/src/models/MemberDatabase.java">
       <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="57" end1="59" start2="58" end2="60" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="77" end1="78" start2="78" end2="78" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
+        <range start1="9" end1="10" start2="9" end2="10" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
+        <range start1="38" end1="39" start2="38" end2="39" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="43" end1="47" start2="43" end2="44" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="49" end1="54" start2="46" end2="47" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="56" end1="56" start2="49" end2="55" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="57" end1="57" start2="56" end2="63" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
+        <range start1="59" end1="63" start2="65" end2="128" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
       </ranges>
     </file>
   </component>
@@ -131,7 +135,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664312886257</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="serena edits">
+      <created>1664485889116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664485889116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes by Jackson">
+      <created>1664485898752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664485898752</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,8 +166,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="set up classes" />
-    <MESSAGE value="serena edits" />
     <MESSAGE value="Jackson changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jackson changes" />
+    <MESSAGE value="serena edits" />
+    <MESSAGE value="Changes by Jackson" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson" />
   </component>
 </project>

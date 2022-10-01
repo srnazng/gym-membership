@@ -7,7 +7,7 @@ public class MemberDatabase {
     public static final int NOT_FOUND = -1;
     public MemberDatabase(){
         size = 0;
-        mlist = new Member [4];
+        mlist = new Member [GROWTH_FACTOR];
     }
 
     /**
