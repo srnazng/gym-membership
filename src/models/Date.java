@@ -1,3 +1,7 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
+
 package models;
 
 import java.util.Calendar;

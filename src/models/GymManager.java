@@ -1,24 +1,31 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
 package models;
 
 import java.util.Scanner;
 
 public class GymManager {
-    public static final String RUNNING_MSG = "Gym Manager running...";
     public static final String DOB_ERROR = "DOB ";
     public static final String EXPIRATION_ERROR = "Expiration date ";
     public static final int A_COMMAND_LENGTH = 6;
+    public static final int R_COMMAND_LENGTH = 4;
     public static final int FNAME_INDEX = 1;
     public static final int LNAME_INDEX = 2;
     public static final int DOB_INDEX = 3;
     public static final int EXP_INDEX = 4;
     public static final int LOC_INDEX = 5;
 
+    MemberDatabase database;
+    Schedule schedule;
+
     protected boolean run(){
-        System.out.println(RUNNING_MSG);
+        System.out.println("Gym Manager running...");
         Scanner sc = new Scanner(System.in);
         String s = "";
 
-        MemberDatabase database = new MemberDatabase();
+        database = new MemberDatabase();
+        schedule = new Schedule();
         
         while(sc.hasNextLine()) {
             s = sc.nextLine();
@@ -26,34 +33,34 @@ public class GymManager {
                 break;
             }
             String command = s.split(" ")[0];
-            runCommand(command, s, database);
+            runCommand(command, s);
         }
 
         return true;
     }
 
-    private void runCommand(String command, String line, MemberDatabase database){
+    private void runCommand(String command, String line){
         switch (command) {
             case "A":
-                handleAddMember(line, database);
+                handleAddMember(line);
                 break;
             case "R":
-                handleCancelMembership(line, database);
+                handleCancelMembership(line);
                 break;
             case "P":
-                // display list of members without sorting
+                database.print(); // display members without sorting
                 break;
             case "PC":
-                // display the list of members ordered by location
+                database.printByCounty(); // display members ordered by location
                 break;
             case "PN":
-                // display the list of members ordered by name
+                database.printByName(); // display members ordered by name
                 break;
             case "PD":
-                // display the list of members ordered by expiration dates
+                database.printByExpirationDate(); // display members ordered by expiration
                 break;
             case "S":
-                // display class schedule
+                schedule.printSchedule();
                 break;
             case "C":
                 // check in
@@ -69,10 +76,9 @@ public class GymManager {
     /**
      * Command A
      * @param command
-     * @param db
      * @return member added success
      */
-    private boolean handleAddMember(String command, MemberDatabase db){
+    private boolean handleAddMember(String command){
         String[] parts = command.split(" ");
         if(parts.length < A_COMMAND_LENGTH) return false;
 
@@ -91,18 +97,33 @@ public class GymManager {
         }
 
         Member member = new Member(parts[FNAME_INDEX], parts[LNAME_INDEX], dob, expire, location);
-        if(db.contains(member)) {
+        if(database.contains(member)) {
             System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " is already in the database.");
             return false;
         }
 
-        if(db.add(member)){
+        if(database.add(member)){
             System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " added.");
         }
         return true;
     }
 
-    private boolean handleCancelMembership(String command, MemberDatabase db){
+    /**
+     * Cancel membership when command R
+     * @param command
+     * @return  cancel success
+     */
+    private boolean handleCancelMembership(String command){
+        String[] parts = command.split(" ");
+        if(parts.length < R_COMMAND_LENGTH) return false;
+
+        if(database.remove(new Member(parts[FNAME_INDEX], parts[LNAME_INDEX], new Date(parts[DOB_INDEX])))){
+            System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " removed.");
+        }
+        else{
+            System.out.println(parts[FNAME_INDEX] + " " + parts[LNAME_INDEX] + " is not in the database.");
+        }
+
         return true;
     }
 

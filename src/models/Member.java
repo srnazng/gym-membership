@@ -1,5 +1,7 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
 package models;
-import java.util.Calendar;
 
 public class Member implements Comparable<Member>{
     private String fname;
@@ -16,24 +18,12 @@ public class Member implements Comparable<Member>{
         this.location = location;
     }
 
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public Date getExpire() {
-        return expire;
-    }
-
-    public Location getLocation() {
-        return location;
+    public Member(String fname, String lname, Date dob){
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.expire = null;
+        this.location = null;
     }
 
     /**
@@ -55,7 +45,6 @@ public class Member implements Comparable<Member>{
     @Override
     public boolean equals(Object obj) {
         Member member = (Member) obj;
-
         return fname.equalsIgnoreCase(member.fname)
                 && lname.equalsIgnoreCase(member.lname)
                 && dob.getYear() == member.dob.getYear()
@@ -104,7 +93,6 @@ public class Member implements Comparable<Member>{
     public int compareDate(Member member){
         return expire.compareTo(member.expire);
     }
-
 
     public static void main(String[] args){
 

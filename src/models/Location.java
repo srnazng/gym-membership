@@ -1,3 +1,6 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
 package models;
 
 public enum Location {

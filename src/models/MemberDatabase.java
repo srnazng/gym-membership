@@ -1,3 +1,6 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
 package models;
 
 public class MemberDatabase {
@@ -25,7 +28,7 @@ public class MemberDatabase {
     }
 
     /**
-     * Grow the member list by 4
+     * Grow the member list by GROWTH_FACTOR
      */
     private void grow() {
         Member [] mcopy = new Member [mlist.length + GROWTH_FACTOR];
@@ -65,16 +68,17 @@ public class MemberDatabase {
     }
 
     public void print () {
+        System.out.println("-list of members-");
         for (Member member : mlist){
             System.out.println(member);
         }
+        System.out.println("-end of list-");
     } //print the array contents as is
-
 
     public void printByCounty() {
         Member [] copy = mlist;
         for (int i = 0; i < size - 1; i++){
-            for (int j = 0; j < size - 1 - i; i++){
+            for (int j = 0; j < size - 1 - i; j++){
                 Member memi = copy[i];
                 Member memj = copy[j];
                 if (memi.compareCounty(memj) > 0){
@@ -84,15 +88,17 @@ public class MemberDatabase {
             }
         }
 
-        for (Member member : copy){
-            System.out.println(member);
+        System.out.println("-list of members sorted by county and zipcode-");
+        for (int i = 0; i < size; i++){
+            System.out.println(mlist[i]);
         }
+        System.out.println("-end of list-");
     } //sort by county and then zipcode
 
     public void printByExpirationDate() {
-        Member [] copy = mlist;
+        Member[] copy = mlist;
         for (int i = 0; i < size - 1; i++){
-            for (int j = 0; j < size - 1 - i; i++){
+            for (int j = 0; j < size - 1 - i; j++){
                 Member memi = copy[i];
                 Member memj = copy[j];
                 if (memi.compareDate(memj) > 0){
@@ -102,15 +108,17 @@ public class MemberDatabase {
             }
         }
 
-        for (Member member : copy){
-            System.out.println(member);
+        System.out.println("-list of members sorted by membership expiration date-");
+        for (int i = 0; i < size; i++){
+            System.out.println(mlist[i]);
         }
+        System.out.println("-end of list-");
     } //sort by the expiration date
 
     public void printByName() {
         Member [] copy = mlist;
         for (int i = 0; i < size - 1; i++){
-            for (int j = 0; j < size - 1 - i; i++){
+            for (int j = 0; j < size - 1 - i; j++){
                 Member memi = copy[i];
                 Member memj = copy[j];
                 if (memi.compareTo(memj) > 0){
@@ -120,16 +128,15 @@ public class MemberDatabase {
             }
         }
 
-        for (Member member : copy){
-            System.out.println(member);
+        System.out.println("-list of members sorted by last name, and first name-");
+        for (int i = 0; i < size; i++){
+            System.out.println(mlist[i]);
         }
+        System.out.println("-end of list-");
     } //sort by last name and then first name
 
 
     public boolean contains(Member member){
-        if(find(member) == -1){
-            return false;
-        }
-        return true;
+        return find(member) != NOT_FOUND;
     }
 }

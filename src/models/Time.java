@@ -1,3 +1,6 @@
+/**
+ * @author Jackson Lee, Serena Zeng
+ */
 package models;
 
 public enum Time {
@@ -8,5 +11,9 @@ public enum Time {
 
     Time(String time){
         this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 }
