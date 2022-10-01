@@ -127,6 +127,10 @@ public class GymManager {
         return true;
     }
 
+    private boolean handleCheckIn(){
+        return true;
+    }
+
     /**
      * Return errors if DOB or expiration date cannot be used for member
      * @param dob

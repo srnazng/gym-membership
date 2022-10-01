@@ -20,9 +20,7 @@ public class MemberDatabase {
      */
     private int find(Member member) {
         for (int i = 0; i < size; i++){
-            if (member.equals(mlist[i])){
-                return i;
-            }
+            if (member.equals(mlist[i])) return i;
         }
         return NOT_FOUND;
     }
@@ -59,7 +57,6 @@ public class MemberDatabase {
     public boolean remove(Member member) {
         if (!contains(member)) return false;
         int mindex = find(member);
-        if (mindex == -1) return false;
 
         for (int i = mindex; i < size; i++){
             mlist[i] = mlist[i + 1];
