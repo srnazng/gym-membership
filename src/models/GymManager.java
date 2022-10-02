@@ -10,11 +10,16 @@ public class GymManager {
     public static final String EXPIRATION_ERROR = "Expiration date ";
     public static final int A_COMMAND_LENGTH = 6;
     public static final int R_COMMAND_LENGTH = 4;
+    public static final int C_COMMAND_LENGTH = 5;
     public static final int FNAME_INDEX = 1;
     public static final int LNAME_INDEX = 2;
     public static final int DOB_INDEX = 3;
     public static final int EXP_INDEX = 4;
     public static final int LOC_INDEX = 5;
+    public static final int C_CLASS_INDEX = 1;
+    public static final int C_FNAME_INDEX = 2;
+    public static final int C_LNAME_INDEX = 3;
+    public static final int C_DOB_INDEX = 4;
 
     MemberDatabase database;
     Schedule schedule;
@@ -63,7 +68,7 @@ public class GymManager {
                 schedule.printSchedule();
                 break;
             case "C":
-                // check in
+                handleCheckIn(line);
                 break;
             case "D":
                 // drop class
@@ -127,7 +132,22 @@ public class GymManager {
         return true;
     }
 
-    private boolean handleCheckIn(){
+    /**
+     *
+     * @param command
+     * @return member checked in for class successfully
+     */
+    private boolean handleCheckIn(String command){
+        String[] parts = command.split(" ");
+        if(parts.length < C_COMMAND_LENGTH) return false;
+        Date dob = new Date(parts[C_DOB_INDEX]);
+        if (!dob.isValid()){
+            System.out.println(DOB_ERROR + parts[C_DOB_INDEX] + ": invalid calendar date!");
+            return false;
+        }
+
+
+
         return true;
     }
 
