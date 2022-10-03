@@ -1,10 +1,12 @@
-/**
- * @author Jackson Lee, Serena Zeng
- */
 package models;
 
 import java.util.Scanner;
 
+/**
+ * The GymManager class is the user interface class that processes the
+ * command line inputs and prints the corresponding outputs.
+ * @author Jackson Lee, Serena Zeng
+ */
 public class GymManager {
     private static final String DOB_ERROR = "DOB ";
     private static final String EXPIRATION_ERROR = "Expiration date ";
@@ -25,6 +27,11 @@ public class GymManager {
     MemberDatabase database;
     Schedule schedule;
 
+    /**
+     * Run program
+     * Reads lines from terminal and performs commands based off inputs
+     * @return true
+     */
     protected boolean run(){
         System.out.println("Gym Manager running...");
         Scanner sc = new Scanner(System.in);
@@ -45,6 +52,11 @@ public class GymManager {
         return true;
     }
 
+    /**
+     * Processes terminal commands
+     * @param command   command indicating type of task
+     * @param line  entire instruction
+     */
     private void runCommand(String command, String line){
         if(command.trim().length() == 0){
             return;
@@ -57,16 +69,16 @@ public class GymManager {
                 handleCancelMembership(line);
                 break;
             case "P":
-                database.print(); // display members without sorting
+                database.print();
                 break;
             case "PC":
-                database.printByCounty(); // display members ordered by location
+                database.printByLocation();
                 break;
             case "PN":
-                database.printByName(); // display members ordered by name
+                database.printByName();
                 break;
             case "PD":
-                database.printByExpirationDate(); // display members ordered by expiration
+                database.printByExpirationDate();
                 break;
             case "S":
                 schedule.printSchedule();
@@ -83,9 +95,11 @@ public class GymManager {
     }
 
     /**
-     * Command A
-     * @param command
-     * @return member added success
+     * Handles inputs with command type A
+     * Parses command for member information
+     * Checks if member is valid and if so, adds member to member database
+     * @param command   Entire line of instruction containing member information
+     * @return true if member successfully added, false otherwise
      */
     private boolean handleAddMember(String command){
         String[] parts = command.split(" ");
@@ -115,9 +129,11 @@ public class GymManager {
     }
 
     /**
-     * Cancel membership when command R
-     * @param command
-     * @return  cancel success
+     * Handles inputs with command R
+     * Parses command for member information
+     * Checks if member is in the member database and if so, removes from the member from the database
+     * @param command   Entire line of instruction containing member information
+     * @return true if membership cancel success, false otherwise
      */
     private boolean handleCancelMembership(String command){
         String[] parts = command.split(" ");
@@ -132,9 +148,18 @@ public class GymManager {
     }
 
     /**
-     *
-     * @param command
-     * @return member checked in for class successfully
+     * Handles inputs with command C
+     * Parses command for fitness class and member information
+     * Checks in the member if
+     * 1. The member is in the database
+     * 2. Their membership is not expired, their
+     * 3. Their date of birth is valid
+     * 4. The specified class exists
+     * 5. The class has no time conflict with the member's other fitness clases
+     * 6. The member is not already checked in
+     * Displays appropriate error messages if unable to check in member to class
+     * @param command Entire line of instruction containing member and class information
+     * @return true if member checked in for class successfully, false otherwise
      */
     private boolean handleCheckIn(String command){
         String[] parts = command.split(" ");
@@ -176,6 +201,17 @@ public class GymManager {
         return true;
     }
 
+    /**
+     * Handles inputs with command D
+     * Parses command for fitness class and member information
+     * Drops the member from the class if
+     * 1. The member is initially checked into the class
+     * 2. Their date of birth is valid
+     * 3. The specified class exists
+     * Displays appropriate error messages if unable to drop member from class
+     * @param command Entire line of instruction containing member and class information
+     * @return true if member dropped from class successfully, false otherwise
+     */
     private boolean handleDropClass(String command){
         String[] parts = command.split(" ");
         if(parts.length < D_COMMAND_LENGTH) return false;
@@ -208,11 +244,11 @@ public class GymManager {
 
     /**
      * Return errors if DOB or expiration date cannot be used for member
-     * @param dob
-     * @param dobText
-     * @param expiration
-     * @param expText
-     * @return  error String
+     * @param dob           date of birth represented as Date object
+     * @param dobText       date of birth represented as String
+     * @param expiration    expiration date represented as Date object
+     * @param expText       expiration date represented as String
+     * @return  error message if there is an error, null otherwise
      */
     private String checkDateErrors(Date dob, String dobText, Date expiration, String expText){
         if(!dob.isValid()){

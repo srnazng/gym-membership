@@ -1,3 +1,5 @@
+package models;
+
 /**
  * The FitnessClass class represents the fitness classes at the gym.
  * Each FitnessClass object includes the name of the class, the name
@@ -6,8 +8,6 @@
  * to add or drop a class, and to check if a member is checked into the class.
  * @author Jackson Lee, Serena Zeng
  */
-package models;
-
 public class FitnessClass {
     private String name;
     private String instructor;
@@ -19,9 +19,9 @@ public class FitnessClass {
 
     /**
      * Create a new Fitness Class object with no checked in members
-     * @param name  Name of class
+     * @param name          Name of class
      * @param instructor    Name of the class instructor
-     * @param time  Time of the class (morning or afternoon)
+     * @param time          Time of the class (morning or afternoon)
      */
     FitnessClass(String name, String instructor, Time time){
         this.name = name;
@@ -55,7 +55,7 @@ public class FitnessClass {
     }
 
     /**
-     * Returns the members who are checked into the fitness class
+     * Gets a list of Members (as Strings) who are checked into the fitness class
      * @return  List of participants of the class, empty string if no participants
      */
     private String getClassMemberList(){
@@ -79,8 +79,8 @@ public class FitnessClass {
     }
 
     /**
-     * Check in a member to the fitness class
-     * Increment the number of participants checked into the class
+     * Check in a member to the fitness class and
+     * increment the number of participants checked into the class
      * @param member Member to be checked into class
      * @return true if member successfully added, false otherwise
      */
@@ -93,8 +93,8 @@ public class FitnessClass {
     }
 
     /**
-     * Remove the given member from the list of participants in the class
-     * Decrement the number of participants checked into the class
+     * Remove the given member from the list of participants in the class and
+     * decrement the number of participants checked into the class
      * @param member Member to remove from participant list
      * @return false if member is not in the class, otherwise true
      */
@@ -114,7 +114,7 @@ public class FitnessClass {
      */
     private void grow() {
         Member[] mcopy = new Member [checkedInMembers.length + GROWTH_FACTOR];
-        for (int i=0; i<checkedInMembers.length; i++) {
+        for (int i = 0; i < checkedInMembers.length; i++) {
             mcopy[i] = checkedInMembers[i];
         }
         checkedInMembers = mcopy;

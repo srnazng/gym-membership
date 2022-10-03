@@ -1,3 +1,5 @@
+package models;
+
 /**
  * The Member class represents a member of the gym and is comparable based on name.
  * Each Member object contains member information including first name, last name, date of
@@ -6,8 +8,6 @@
  * including by expiration date and by county/zipcode.
  * @author Jackson Lee, Serena Zeng
  */
-package models;
-
 public class Member implements Comparable<Member>{
     private String fname;
     private String lname;
@@ -15,6 +15,14 @@ public class Member implements Comparable<Member>{
     private Date expire;
     private Location location;
 
+    /**
+     * Creates a member object with all fields completed
+     * @param fname     first name
+     * @param lname     last name
+     * @param dob       date of birth
+     * @param expire    expiration date
+     * @param location  location (county, city, zipcode)
+     */
     public Member(String fname, String lname, Date dob, Date expire, Location location){
         this.fname = fname;
         this.lname = lname;
@@ -23,6 +31,12 @@ public class Member implements Comparable<Member>{
         this.location = location;
     }
 
+    /**
+     * Creates a member object with the minimally required fields
+     * @param fname     first name
+     * @param lname     last name
+     * @param dob       date of birth
+     */
     public Member(String fname, String lname, Date dob){
         this.fname = fname;
         this.lname = lname;
@@ -31,13 +45,17 @@ public class Member implements Comparable<Member>{
         this.location = null;
     }
 
+    /**
+     * Get the expiration date of the Member
+     * @return expiration date as a Date object
+     */
     public Date getExpire(){
         return expire;
     }
 
     /**
      * Represent current member as string
-     * @return string representing member
+     * @return String representing member
      */
     @Override
     public String toString() {
@@ -52,9 +70,10 @@ public class Member implements Comparable<Member>{
     }
 
     /**
-     * ereturns true if the two first names, last names and dates of birth are equal.
-     * @param obj
-     * @return boolean representing if this member is equal to other member
+     * Checks if a given object is equal to the Member
+     * Members are considered equal if the two first names, last names and DOBs are equal
+     * @param obj   Member object being compared
+     * @return true if obj is equal to member, false otherwise
      */
     @Override
     public boolean equals(Object obj) {
@@ -67,9 +86,9 @@ public class Member implements Comparable<Member>{
     }
 
     /**
-     *
-     * @param member the object to be compared.
-     * @return negative if member is before, 0 if equal, positive if after
+     * Compares current member with another member based on first and last name
+     * @param member Other Member object being compared to
+     * @return negative if this member comes before, 0 if equal, positive otherwise
      */
     @Override
     public int compareTo(Member member) {
@@ -81,9 +100,9 @@ public class Member implements Comparable<Member>{
     }
 
     /**
-     *
-     * @param member
-     * @return positive if member comes after other member when sorted by county and zip code
+     * Compares current member with another member based on location (sorted by county then zip code)
+     * @param member    Other Member object being compared to
+     * @return negative if this member comes before, 0 if same location, positive otherwise
      */
     public int compareCounty(Member member){
         // compare county
@@ -100,11 +119,11 @@ public class Member implements Comparable<Member>{
     }
 
     /**
-     *
-     * @param member
-     * @return 1 if member comes after other member when sorted by date
+     * Compare current member with another member based on the expiration date of their membership
+     * @param member    Other Member object being compared to
+     * @return negative if this member comes before, 0 if same expiration date, positive otherwise
      */
-    public int compareDate(Member member){
+    public int compareExpiration(Member member){
         return expire.compareTo(member.expire);
     }
 

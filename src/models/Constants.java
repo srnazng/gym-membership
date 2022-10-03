@@ -1,9 +1,10 @@
-/**
- *
- * @author Jackson Lee, Serena Zeng
- */
 package models;
 
+/**
+ * The Constants class contains a list of public
+ * constants that can be used across other classes
+ * @author Jackson Lee, Serena Zeng
+ */
 public class Constants {
     public static final int LESS = -1;
     public static final int EQUAL = 0;
