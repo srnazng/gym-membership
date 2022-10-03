@@ -176,9 +176,22 @@ public class Date implements Comparable<Date> {
     }
 
 
-    // Testbed main
+    // Testbed main to test isValid() method
     public static void main(String[] args){
-        Date day = new Date();
-        System.out.println(day.getMonth() + "/" + day.getDay() + "/" + day.getYear());
+        //Test Number 1
+        Date date = new Date("1/2/2011");
+        boolean expectedOutput = true;
+        System.out.println("Test case #1: a date in January is valid <= 31");
+        testResult(date, expectedOutput);
+    }
+
+    private static void testResult(Date date, boolean expectedOutput){
+        boolean receivedOutput = date.isValid();
+        if (receivedOutput == expectedOutput){
+            System.out.println(date + ": passed");
+        }
+        else{
+            System.out.println(date + ": failed");
+        }
     }
 }

@@ -31,6 +31,10 @@ public class Member implements Comparable<Member>{
         this.location = null;
     }
 
+    public Date getExpire(){
+        return expire;
+    }
+
     /**
      * Represent current member as string
      * @return string representing member
@@ -73,7 +77,7 @@ public class Member implements Comparable<Member>{
         if(last_compare != 0){
             return last_compare;
         }
-        return fname.compareTo(member.fname);
+        return fname.compareToIgnoreCase(member.fname);
     }
 
     /**
@@ -105,6 +109,8 @@ public class Member implements Comparable<Member>{
     }
 
     public static void main(String[] args){
-
+        Member member1 = new Member("A", "b", new Date("1/1/2022"));
+        Member member2 = new Member("A", "A", new Date("1/1/2022"));
+        System.out.println(member1.compareTo(member2));
     }
 }

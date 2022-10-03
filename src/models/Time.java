@@ -16,4 +16,5 @@ public enum Time {
     public String getTime() {
         return time;
     }
+
 }

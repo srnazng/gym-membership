@@ -64,6 +64,7 @@ public class MemberDatabase {
         for (int i = mindex; i < size; i++){
             mlist[i] = mlist[i + 1];
         }
+        size--;
         return true;
     }
 
@@ -87,11 +88,11 @@ public class MemberDatabase {
         Member [] copy = mlist;
         for (int i = 0; i < size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
-                Member memi = copy[i];
-                Member memj = copy[j];
-                if (memi.compareCounty(memj) > 0){
-                    copy[i] = memj;
-                    copy[j] = memi;
+                Member mem1 = copy[j];
+                Member mem2 = copy[j + 1];
+                if (mem1.compareCounty(mem2) > 0){
+                    copy[j] = mem2;
+                    copy[j + 1] = mem1;
                 }
             }
         }
@@ -111,11 +112,11 @@ public class MemberDatabase {
         Member[] copy = mlist;
         for (int i = 0; i < size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
-                Member memi = copy[i];
-                Member memj = copy[j];
-                if (memi.compareDate(memj) > 0){
-                    copy[i] = memj;
-                    copy[j] = memi;
+                Member mem1 = copy[j];
+                Member mem2 = copy[j + 1];
+                if (mem1.compareDate(mem2) > 0){
+                    copy[j] = mem2;
+                    copy[j + 1] = mem1;
                 }
             }
         }
@@ -152,5 +153,18 @@ public class MemberDatabase {
 
     public boolean contains(Member member){
         return find(member) != NOT_FOUND;
+    }
+
+    /**
+     *
+     * @param member Temporary member
+     * @return Complete member object from member database
+     */
+    public Member getMember(Member member){
+        int index = find(member);
+        if(index == NOT_FOUND){
+            return null;
+        }
+        return mlist[index];
     }
 }
