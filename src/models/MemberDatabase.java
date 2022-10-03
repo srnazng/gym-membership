@@ -1,13 +1,16 @@
 /**
+ * Database of all members at the gym
  * @author Jackson Lee, Serena Zeng
  */
 package models;
 
+import static models.Constants.NOT_FOUND;
+
 public class MemberDatabase {
     private Member [] mlist;
     private int size;
-    public static final int GROWTH_FACTOR = 4;
-    public static final int NOT_FOUND = -1;
+    private static final int GROWTH_FACTOR = 4;
+
     public MemberDatabase(){
         size = 0;
         mlist = new Member [GROWTH_FACTOR];
@@ -64,15 +67,23 @@ public class MemberDatabase {
         return true;
     }
 
-    public void print () {
-        System.out.println("-list of members-");
-        for (Member member : mlist){
-            System.out.println(member);
+    public void print() {
+        if(size < 1){
+            System.out.println("Member database is empty!");
+            return;
         }
-        System.out.println("-end of list-");
+        System.out.println("\n-list of members-");
+        for (int i=0; i<size; i++){
+            System.out.println(mlist[i]);
+        }
+        System.out.println("-end of list-\n");
     } //print the array contents as is
 
     public void printByCounty() {
+        if(size < 1){
+            System.out.println("Member database is empty!");
+            return;
+        }
         Member [] copy = mlist;
         for (int i = 0; i < size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
@@ -85,14 +96,18 @@ public class MemberDatabase {
             }
         }
 
-        System.out.println("-list of members sorted by county and zipcode-");
+        System.out.println("\n-list of members sorted by county and zipcode-");
         for (int i = 0; i < size; i++){
-            System.out.println(mlist[i]);
+            System.out.println(copy[i]);
         }
-        System.out.println("-end of list-");
+        System.out.println("-end of list-\n");
     } //sort by county and then zipcode
 
     public void printByExpirationDate() {
+        if(size < 1){
+            System.out.println("Member database is empty!");
+            return;
+        }
         Member[] copy = mlist;
         for (int i = 0; i < size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
@@ -104,32 +119,34 @@ public class MemberDatabase {
                 }
             }
         }
-
-        System.out.println("-list of members sorted by membership expiration date-");
+        System.out.println("\n-list of members sorted by membership expiration date-");
         for (int i = 0; i < size; i++){
-            System.out.println(mlist[i]);
+            System.out.println(copy[i]);
         }
-        System.out.println("-end of list-");
+        System.out.println("-end of list-\n");
     } //sort by the expiration date
 
     public void printByName() {
+        if(size < 1){
+            System.out.println("Member database is empty!");
+            return;
+        }
         Member [] copy = mlist;
-        for (int i = 0; i < size - 1; i++){
+        for (int i = 0; i< size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
-                Member memi = copy[i];
-                Member memj = copy[j];
-                if (memi.compareTo(memj) > 0){
-                    copy[i] = memj;
-                    copy[j] = memi;
+                Member mem1 = copy[j];
+                Member mem2 = copy[j + 1];
+                if (mem1.compareTo(mem2) > 0){
+                    copy[j] = mem2;
+                    copy[j + 1] = mem1;
                 }
             }
         }
-
-        System.out.println("-list of members sorted by last name, and first name-");
+        System.out.println("\n-list of members sorted by last name, and first name-");
         for (int i = 0; i < size; i++){
-            System.out.println(mlist[i]);
+            System.out.println(copy[i]);
         }
-        System.out.println("-end of list-");
+        System.out.println("-end of list-\n");
     } //sort by last name and then first name
 
 

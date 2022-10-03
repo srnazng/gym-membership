@@ -1,4 +1,9 @@
 /**
+ * The Member class represents a member of the gym and is comparable based on name.
+ * Each Member object contains member information including first name, last name, date of
+ * birth, membership expiration date, and location. A member is uniquely identified by
+ * first name, last name, and date of birth. This class also offers other methods of comparison
+ * including by expiration date and by county/zipcode.
  * @author Jackson Lee, Serena Zeng
  */
 package models;
@@ -32,8 +37,13 @@ public class Member implements Comparable<Member>{
      */
     @Override
     public String toString() {
-        return fname + " " + lname + ", DOB: " + dob +
-                ", Membership expires " + expire +
+        if(expire.isPast()){
+            return fname + " " + lname + ", DOB: " + dob.toString() +
+                    ", Membership expired " + expire.toString() +
+                    ", Location: " + location;
+        }
+        return fname + " " + lname + ", DOB: " + dob.toString() +
+                ", Membership expires " + expire.toString() +
                 ", Location: " + location;
     }
 
@@ -59,7 +69,7 @@ public class Member implements Comparable<Member>{
      */
     @Override
     public int compareTo(Member member) {
-        int last_compare = lname.compareTo(member.lname);
+        int last_compare = lname.compareToIgnoreCase(member.lname);
         if(last_compare != 0){
             return last_compare;
         }

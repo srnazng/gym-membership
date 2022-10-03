@@ -4,16 +4,18 @@
 package models;
 
 public enum Location {
-    BRIDGEWATER("08807", "Somerset County"),
-    EDISON("08837", "Middlesex County"),
-    FRANKLIN("08873", "Somerset County"),
-    PISCATAWAY("08854", "Middlesex County"),
-    SOMERVILLE("08876", "Somerset County");
+    BRIDGEWATER("Bridgewater", "08807", "Somerset"),
+    EDISON("Edison", "08837", "Middlesex"),
+    FRANKLIN("Franklin", "08873", "Somerset"),
+    PISCATAWAY("Piscataway","08854", "Middlesex"),
+    SOMERVILLE("Somerville", "08876", "Somerset");
 
+    private final String city;
     private final String county;
     private final String zipCode;
 
-    Location(String zipCode, String county){
+    Location(String city, String zipCode, String county){
+        this.city = city;
         this.zipCode = zipCode;
         this.county = county;
     }
@@ -35,5 +37,11 @@ public enum Location {
         }
 
         return null;
+    }
+
+    @Override
+    public String toString(){
+        return city.toUpperCase() + ", " + zipCode +
+                ", " + county.toUpperCase();
     }
 }
