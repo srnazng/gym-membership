@@ -4,102 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="serena">
-      <change afterPath="$PROJECT_DIR$/javadoc/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-14.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-15.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-16.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-17.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-18.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-19.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-20.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-21.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-22.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/member-search-index.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Constants.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Date.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/GymManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Location.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Month.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/RunProject1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Schedule.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/Time.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/models/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/package-search-index.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/external/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_222222_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_454545_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_888888_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-3.4.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.structure.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.structure.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip-utils/dist/jszip-utils-ie.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip-utils/dist/jszip-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip-utils/dist/jszip-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip/dist/jszip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script-dir/jszip/dist/jszip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/system-properties.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/type-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadoc/type-search-index.zip" afterDir="false" />
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="testing, javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-20.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-20.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-21.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-21.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-22.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-22.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Constants.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Constants.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Date.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Date.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/GymManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/GymManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Location.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Location.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Member.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Month.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Month.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/RunProject1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/RunProject1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Schedule.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Time.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Time.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/system-properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/system-properties.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Month.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RunProject1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Time.java" afterDir="false" />
-    </list>
-    <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson">
-      <change beforePath="$PROJECT_DIR$/src/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Project 1 Test Design Document - Jackson Lee, Serena Zeng.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Project 1 Test Design Document - Jackson Lee, Serena Zeng.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/input.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,71 +72,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/models/Member.java">
-      <ranges>
-        <range start1="0" end1="8" start2="0" end2="0" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="10" end1="10" start2="2" end2="10" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="17" end1="17" start2="17" end2="25" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="25" end1="25" start2="33" end2="39" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="33" end1="33" start2="47" end2="51" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="39" end1="40" start2="57" end2="58" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="54" end1="57" start2="72" end2="76" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="69" end1="72" start2="88" end2="91" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="83" end1="86" start2="102" end2="105" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="102" end1="105" start2="121" end2="124" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="106" end1="107" start2="125" end2="126" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="110" end1="110" start2="129" end2="133" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="111" end1="114" start2="134" end2="185" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="115" end1="115" start2="186" end2="207" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/Date.java">
-      <ranges>
-        <range start1="0" end1="5" start2="0" end2="0" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="9" end1="9" start2="4" end2="9" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="13" end1="13" start2="13" end2="18" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="16" end1="16" start2="21" end2="22" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="23" end1="24" start2="29" end2="31" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="31" end1="32" start2="38" end2="40" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="51" end1="52" start2="59" end2="61" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="55" end1="56" start2="64" end2="65" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="58" end1="61" start2="67" end2="70" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="65" end1="65" start2="74" end2="75" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="67" end1="69" start2="77" end2="78" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="71" end1="71" start2="80" end2="81" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="75" end1="76" start2="85" end2="87" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="78" end1="79" start2="89" end2="90" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="84" end1="84" start2="95" end2="96" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="89" end1="91" start2="101" end2="107" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="93" end1="95" start2="109" end2="115" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="97" end1="99" start2="117" end2="123" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="104" end1="105" start2="128" end2="130" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="107" end1="108" start2="132" end2="134" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="111" end1="112" start2="137" end2="138" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="114" end1="115" start2="140" end2="141" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="117" end1="118" start2="143" end2="144" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="120" end1="121" start2="146" end2="147" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="122" end1="123" start2="148" end2="149" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="125" end1="128" start2="151" end2="154" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="136" end1="136" start2="162" end2="163" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="138" end1="139" start2="165" end2="166" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="142" end1="143" start2="169" end2="170" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="147" end1="148" start2="174" end2="176" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="149" end1="150" start2="177" end2="178" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="156" end1="157" start2="184" end2="186" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="158" end1="162" start2="187" end2="191" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="163" end1="165" start2="192" end2="193" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="167" end1="169" start2="195" end2="196" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="171" end1="173" start2="198" end2="199" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="177" end1="180" start2="203" end2="210" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="181" end1="185" start2="211" end2="282" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="187" end1="188" start2="284" end2="291" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="189" end1="190" start2="292" end2="293" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="191" end1="194" start2="294" end2="296" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -198,12 +88,15 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "last_opened_file_path": "/Users/serena/IdeaProjects/gym-membership"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -341,7 +234,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664774650256</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="testing, javadoc">
+      <created>1664816478643</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664816478643</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changes by Jackson">
+      <created>1664816496595</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1664816496595</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -361,6 +268,7 @@
     <MESSAGE value="Jackson changes" />
     <MESSAGE value="serena edits" />
     <MESSAGE value="serena" />
+    <MESSAGE value="testing, javadoc" />
     <MESSAGE value="Changes by Jackson" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson" />
   </component>

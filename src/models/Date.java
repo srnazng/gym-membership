@@ -3,8 +3,7 @@ package models;
 import java.util.Calendar;
 
 /**
- * Date object consisting of year, month, and day
- *
+ * The Date class represents a calendar date consisting of year, month, and day
  * @author Jackson Lee, Serena Zeng
  */
 public class Date implements Comparable<Date> {
