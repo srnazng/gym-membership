@@ -1,5 +1,7 @@
 package models;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 /**
  * The Schedule class manages all the fitness classes at the gym. Schedule contains a list of
  * all the fitness classes and includes methods to detect time conflicts, check if a class
@@ -15,7 +17,7 @@ public class ClassSchedule {
     private static final int CITY_INDEX = 3;
 
     /**
-     * Create Schedule object that includes a list of predetermined Fitness classes
+     * Create Schedule object that sets the number of classes initially to 0.
      */
     public ClassSchedule(){
         this.numClasses = 0;
@@ -26,8 +28,8 @@ public class ClassSchedule {
      */
     public void printSchedule(){
         System.out.println("\n-Fitness classes-");
-        for(int i = 0; i < classList.length; i++){
-            System.out.println(classList[i]);
+        for(int i = 0; i < classes.length; i++){
+            System.out.println(classes[i]);
         }
         System.out.println();
     }
@@ -38,7 +40,7 @@ public class ClassSchedule {
      * @return the fitness class with name className
      */
     public FitnessClass getClass(String className){
-        for(FitnessClass fitClass : classList){
+        for(FitnessClass fitClass : classes){
             if(fitClass.getName().equalsIgnoreCase(className)){
                 return fitClass;
             }
@@ -63,7 +65,7 @@ public class ClassSchedule {
      * @return conflicting class that contains member, null if no class conflict
      */
     public FitnessClass sameTimeClass(Member member, FitnessClass fitClass){
-        for(FitnessClass compClass : classList){
+        for(FitnessClass compClass : classes){
             if (!compClass.getName().equals(fitClass.getName())){
                 if (compClass.contains(member) &&
                         fitClass.getTime() == compClass.getTime()) {
@@ -72,5 +74,24 @@ public class ClassSchedule {
             }
         }
         return null;
+    }
+
+    public void loadSchedule() throws FileNotFoundException {
+        File file = new File("input/classSchedule.txt");
+        Scanner sc = new Scanner(file);
+
+        while (sc.hasNextLine()){
+            numClasses++;
+        }
+
+        sc = new Scanner(file);
+        classes = new FitnessClass[numClasses];
+
+        for (int i = 0; i < numClasses; i++){
+            String classString = sc.nextLine();
+            String[] classParts = classString.split(" ");
+            String name = classParts[NAME_INDEX];
+        }
+
     }
 }
