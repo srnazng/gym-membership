@@ -7,7 +7,8 @@ package models;
  */
 public enum Time {
     MORNING("9:30"),
-    AFTERNOON("14:00");
+    AFTERNOON("14:00"),
+    EVENING("18:30");
 
     private final String time;
 

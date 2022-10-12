@@ -1,5 +1,7 @@
 package models;
 
+import java.text.DecimalFormat;
+
 /**
  * The Constants class contains a list of public
  * constants that can be used across other classes
@@ -18,4 +20,12 @@ public class Constants {
     public static final int CENTENNIAL = 100;
     public static final int QUARTERCENTENNIAL = 400;
     public static final int ADULT_YEAR = 18;
+    public static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
+    public static final double STANDARD_FEE = 39.99 * 3;
+    public static final double FAMILY_FEE = 59.99 * 3;
+    public static final double PREMIUM_FEE = FAMILY_FEE * 11;
+    public static final double ONE_TIME_FEE = 29.99;
+    public static final int STANDARD_PAYMENTS_PER_YEAR = 4;
+    public static final int FAMILY_PAYMENTS_PER_YEAR = 4;
+    public static final int PREMIUM_PAYMENTS_PER_YEAR = 1;
 }

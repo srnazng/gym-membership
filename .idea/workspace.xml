@@ -4,57 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="testing, javadoc">
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="project 2 set up">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/input/classSchedule.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/input/memberList.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/FamilyMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/PremiumMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-18.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-20.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-20.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-21.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-21.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-22.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-22.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Constants.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Constants.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Date.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Date.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/GymManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/GymManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Location.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Location.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Member.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Month.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Month.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/RunProject1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/RunProject1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Schedule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Time.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Time.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/package-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/system-properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/system-properties.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Project 1 Test Design Document - Jackson Lee, Serena Zeng.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Project 1 Test Design Document - Jackson Lee, Serena Zeng.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RunProject1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Time.java" afterDir="false" />
+    </list>
+    <list id="f3483910-2b62-4991-a3bb-f38bc0561259" name="Changes by Jackson" comment="">
+      <change beforePath="$PROJECT_DIR$/src/models/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +40,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/models/ClassSchedule.java">
+      <ranges>
+        <range start1="1" end1="2" start2="1" end2="4" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+        <range start1="8" end1="10" start2="10" end2="17" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
+        <range start1="12" end1="13" start2="19" end2="20" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+        <range start1="14" end1="19" start2="21" end2="23" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
+        <range start1="26" end1="28" start2="30" end2="32" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+        <range start1="38" end1="39" start2="42" end2="43" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+        <range start1="63" end1="64" start2="67" end2="68" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+        <range start1="73" end1="73" start2="77" end2="96" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -88,6 +70,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "TODO_SCOPE": "All Places",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "last_opened_file_path": "/Users/serena/IdeaProjects/gym-membership"
@@ -95,6 +78,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/input" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/src" />
@@ -248,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664816496595</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Update javadoc">
+      <created>1664816874531</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1664816874532</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -270,6 +261,8 @@
     <MESSAGE value="serena" />
     <MESSAGE value="testing, javadoc" />
     <MESSAGE value="Changes by Jackson" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson" />
+    <MESSAGE value="Update javadoc" />
+    <MESSAGE value="project 2 set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="project 2 set up" />
   </component>
 </project>

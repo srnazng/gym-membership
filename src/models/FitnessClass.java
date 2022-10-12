@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 /**
  * The FitnessClass class represents the fitness classes at the gym.
  * Each FitnessClass object includes the name of the class, the name
@@ -12,10 +14,9 @@ public class FitnessClass {
     private String name;
     private String instructor;
     private Time time;
-    private Member[] checkedInMembers;
-    private int checkedInNum;
-
-    private static final int GROWTH_FACTOR = 50;
+    private Location location;
+    private ArrayList<Member> checkedInMembers;
+    private ArrayList<Member> checkedInGuests;
 
     /**
      * Create a new Fitness Class object with no checked in members
@@ -27,7 +28,23 @@ public class FitnessClass {
         this.name = name;
         this.instructor = instructor;
         this.time = time;
-        checkedInMembers = new Member[GROWTH_FACTOR];
+        checkedInMembers = new ArrayList<>();
+    }
+
+    /**
+     * Create a new Fitness Class object with no checked in members
+     * @param name          Name of class
+     * @param instructor    Name of the class instructor
+     * @param time          Time of the class (morning or afternoon)
+     * @param location      Location of class
+     */
+    FitnessClass(String name, String instructor, Time time, Location location ){
+        this.name = name;
+        this.location = location;
+        this.instructor = instructor;
+        this.time = time;
+        checkedInMembers = new ArrayList<>();
+        checkedInGuests = new ArrayList<>();
     }
 
     /**
@@ -60,18 +77,18 @@ public class FitnessClass {
      */
     private String getClassMemberList(){
         String toReturn = "";
-        if(checkedInNum > 0){
+        if(checkedInMembers.size() > 0){
             toReturn = "\n\t** participants **\n";
         }
         else{
             return "";
         }
 
-        for(int i=0; i<checkedInNum; i++){
-            if(checkedInMembers[i] != null){
-                toReturn = toReturn + "\t\t" + checkedInMembers[i].toString();
+        for(int i=0; i<checkedInMembers.size(); i++){
+            if(checkedInMembers.get(i) != null){
+                toReturn = toReturn + "\t\t" + checkedInMembers.get(i).toString();
             }
-            if(i != checkedInNum - 1){
+            if(i != checkedInMembers.size() - 1){
                 toReturn = toReturn + "\n";
             }
         }
@@ -85,10 +102,25 @@ public class FitnessClass {
      * @return true if member successfully added, false otherwise
      */
     public boolean add(Member member) {
-        if (contains(member)) return false;
-        checkedInMembers[checkedInNum] = member;
-        checkedInNum++;
-        if (checkedInNum == checkedInMembers.length) grow();
+        if (checkedInMembers.contains(member)) return false;
+        checkedInMembers.add(member);
+        return true;
+    }
+
+    /**
+     * Check in a guest to the fitness class and
+     * increment the number of guests checked into the class
+     * @param member Member who is giving the guest pass
+     * @return true if member successfully added, false otherwise
+     */
+    public boolean addGuest(Member member) {
+        if(!(member instanceof FamilyMember) && !(member instanceof PremiumMember)){
+            return false;
+        }
+        if(!member.useGuestPass()){
+            return false;
+        }
+        checkedInGuests.add(member);
         return true;
     }
 
@@ -99,33 +131,20 @@ public class FitnessClass {
      * @return false if member is not in the class, otherwise true
      */
     public boolean dropClass(Member member){
-        if (!contains(member)) return false;
+        if (!checkedInMembers.contains(member)) return false;
         int mindex = find(member);
-
-        for (int i = mindex; i < checkedInNum; i++){
-            checkedInMembers[i] = checkedInMembers[i + 1];
-        }
-        checkedInNum--;
+        checkedInMembers.remove(member);
         return true;
     }
 
     /**
-     * Grow checkedInMembers by GROWTH_FACTOR
+     * Remove the given Member providing the pass to the guest and
+     * @param member Member to remove from guest list
+     * @return false if guest of member is not in the class, otherwise true
      */
-    private void grow() {
-        Member[] mcopy = new Member [checkedInMembers.length + GROWTH_FACTOR];
-        for (int i = 0; i < checkedInMembers.length; i++) {
-            mcopy[i] = checkedInMembers[i];
-        }
-        checkedInMembers = mcopy;
+    public boolean dropGuestClass(Member member){
+        return checkedInGuests.remove(member);
     }
-
-    /**
-     * Check whether a member is checked into the fitness class
-     * @param member Member to be found
-     * @return true if member is a participant, false otherwise
-     */
-    public boolean contains(Member member){ return find(member) != -1; }
 
     /**
      * Find the index of the given Member in the list of participants
@@ -133,9 +152,13 @@ public class FitnessClass {
      * @return  index of member in list of participants
      */
     private int find(Member member){
-        for (int i = 0; i < checkedInNum; i++){
-            if (member.equals(checkedInMembers[i])) return i;
+        for (int i = 0; i < checkedInMembers.size(); i++){
+            if (member.equals(checkedInMembers.get(i))) return i;
         }
         return Constants.NOT_FOUND;
+    }
+
+    public boolean contains(Member member){
+        return checkedInMembers.contains(member);
     }
 }

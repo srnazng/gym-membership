@@ -6,17 +6,19 @@ package models;
  * is offered at the gym, get FitnessClass objects, and print the schedule of classes.
  * @author Jackson Lee, Serena Zeng
  */
-public class Schedule {
-    private FitnessClass[] classList;
+public class ClassSchedule {
+    private FitnessClass[] classes;
+    private int numClasses;
+    private static final int NAME_INDEX = 0;
+    private static final int INSTRUCTOR_INDEX = 1;
+    private static final int TIME_INDEX = 2;
+    private static final int CITY_INDEX = 3;
 
     /**
      * Create Schedule object that includes a list of predetermined Fitness classes
      */
-    public Schedule(){
-        this.classList = new FitnessClass[]{
-                new FitnessClass("Pilates", "Jennifer", Time.MORNING),
-                new FitnessClass("Spinning", "Denise", Time.AFTERNOON),
-                new FitnessClass("Cardio", "Kim", Time.AFTERNOON)};
+    public ClassSchedule(){
+        this.numClasses = 0;
     }
 
     /**

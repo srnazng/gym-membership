@@ -1,5 +1,7 @@
 package models;
 
+import java.text.DecimalFormat;
+
 /**
  * The Member class represents a member of the gym and is comparable based on name.
  * Each Member object contains member information including first name, last name, date of
@@ -51,6 +53,14 @@ public class Member implements Comparable<Member>{
      */
     public Date getExpire(){
         return expire;
+    }
+
+    /**
+     * Get the fee of the Member
+     * @return fee of member as a double
+     */
+    public double membershipFee() {
+        return Constants.STANDARD_FEE;
     }
 
     /**
@@ -204,5 +214,9 @@ public class Member implements Comparable<Member>{
             System.out.println(member1.fname + " " + member1.lname + " compared to "
                     + member2.fname + " " + member2.lname + ": failed. Please do better");
         }
+    }
+
+    public boolean useGuestPass(){
+        return false;
     }
 }

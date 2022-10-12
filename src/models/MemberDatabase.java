@@ -1,6 +1,7 @@
 package models;
 
 import static models.Constants.NOT_FOUND;
+import static models.Constants.decimalFormat;
 
 /**
  * The MemberDatabase class contains a list of all the members of the gym,
@@ -77,14 +78,18 @@ public class MemberDatabase {
      * If there are no members, a message indicating database is empty is printed.
      * Otherwise, a list of members is printed without sorting.
      */
-    public void print() {
+    public void print(boolean includeFees) {
         if(size < 1){
             System.out.println("Member database is empty!");
             return;
         }
         System.out.println("\n-list of members-");
         for (int i = 0; i < size; i++){
-            System.out.println(mlist[i]);
+            String memberInfo = mlist[i].toString();
+            if(includeFees){
+                memberInfo = memberInfo + " " + decimalFormat.format(mlist[i].membershipFee());
+            }
+            System.out.println(memberInfo);
         }
         System.out.println("-end of list-\n");
     }
