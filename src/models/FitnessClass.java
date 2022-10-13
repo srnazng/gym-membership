@@ -66,8 +66,8 @@ public class FitnessClass {
      */
     @Override
     public String toString() {
-        return name + " - " + instructor.toUpperCase() + " " +
-                time.getTime() + getClassMemberList();
+        return name.toUpperCase() + " - " + instructor.toUpperCase() + ", " + time.getTime()
+                + ", " + location.name().toUpperCase() + getClassMemberList();
     }
 
     /**

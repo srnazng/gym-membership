@@ -15,6 +15,7 @@ public class ClassSchedule {
     private static final int INSTRUCTOR_INDEX = 1;
     private static final int TIME_INDEX = 2;
     private static final int CITY_INDEX = 3;
+    public static final int NUM_ARGS = 4;
 
     /**
      * Create Schedule object that sets the number of classes initially to 0.
@@ -27,11 +28,13 @@ public class ClassSchedule {
      * Print the list of fitness classes
      */
     public void printSchedule(){
-        System.out.println("\n-Fitness classes-");
-        for(int i = 0; i < classes.length; i++){
-            System.out.println(classes[i]);
+        if(numClasses > 0 && classes != null){
+            System.out.println("\n-Fitness classes-");
+            for(int i = 0; i < classes.length; i++){
+                System.out.println(classes[i]);
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
     /**
@@ -83,21 +86,29 @@ public class ClassSchedule {
     }
 
     public void loadSchedule() throws FileNotFoundException {
-        File file = new File("input/classSchedule.txt");
+        File file = new File("src/input/classSchedule.txt");
         Scanner sc = new Scanner(file);
 
         while (sc.hasNextLine()){
-            numClasses++;
+            String s = sc.nextLine();
+            if(!s.isBlank()) {
+                numClasses++;
+            }
         }
-
+        sc.close();
         sc = new Scanner(file);
         classes = new FitnessClass[numClasses];
 
         for (int i = 0; i < numClasses; i++){
             String classString = sc.nextLine();
-            String[] classParts = classString.split(" ");
-            String name = classParts[NAME_INDEX];
+            String[] classParts = classString.split("\\s+");
+            if(classParts.length == NUM_ARGS){
+                FitnessClass fitClass = new FitnessClass(classParts[NAME_INDEX],
+                        classParts[INSTRUCTOR_INDEX], Time.toTime(classParts[TIME_INDEX]),
+                        Location.toLocation(classParts[CITY_INDEX]));
+                classes[i] = fitClass;
+            }
         }
-
+        sc.close();
     }
 }

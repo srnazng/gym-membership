@@ -95,8 +95,8 @@ public class GymManager {
      * Load a list of members from the file memberList.txt to the member database.
      * @return true if schedule successfully loaded, false otherwise
      */
-    private boolean handleLoadMemberList(){
-        String path = "input/memberList.txt";
+    private boolean handleLoadMemberList() throws FileNotFoundException {
+        database.loadMembers();
         return true;
     }
 

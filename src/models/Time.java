@@ -25,4 +25,18 @@ public enum Time {
      * @return  the time value as a String
      */
     public String getTime() { return time; }
+
+    /**
+     * Get Time object based on String value
+     * @param time  Time represented by String in hh:mm format
+     * @return  corresponding Time object
+     */
+    public static Time toTime(String time){
+        for(Time t : values()){
+            if(t.name().equalsIgnoreCase(time)){
+                return t;
+            }
+        }
+        return null;
+    }
 }

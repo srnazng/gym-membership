@@ -1,5 +1,9 @@
 package models;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import static models.Constants.NOT_FOUND;
 import static models.Constants.decimalFormat;
 
@@ -13,13 +17,18 @@ public class MemberDatabase {
     private Member[] mlist;
     private int size;
     private static final int GROWTH_FACTOR = 4;
+    public static final int FNAME_INDEX = 0;
+    public static final int LNAME_INDEX = 1;
+    public static final int DOB_INDEX = 2;
+    public static final int EXP_INDEX = 3;
+    public static final int CITY_INDEX = 4;
+    public static final int NUM_ARGS = 5;
 
     /**
      * Create new MemberDatabase object with size 0
      */
     public MemberDatabase(){
         size = 0;
-        mlist = new Member [GROWTH_FACTOR];
     }
 
     /**
@@ -194,5 +203,32 @@ public class MemberDatabase {
             return null;
         }
         return mlist[index];
+    }
+
+    public void loadMembers() throws FileNotFoundException {
+        File file = new File("src/input/memberList.txt");
+        Scanner sc = new Scanner(file);
+
+        while (sc.hasNextLine()){
+            String s = sc.nextLine();
+            if(!s.isBlank()) {
+                size++;
+            }
+        }
+        sc.close();
+        sc = new Scanner(file);
+        mlist = new Member[size + GROWTH_FACTOR];
+
+        for (int i = 0; i < size; i++){
+            String memberString = sc.nextLine();
+            String[] memberParts = memberString.split("\\s+");
+            if(memberParts.length == NUM_ARGS){
+                Member member = new Member(memberParts[FNAME_INDEX], memberParts[LNAME_INDEX],
+                        new Date(memberParts[DOB_INDEX]), new Date(memberParts[EXP_INDEX]),
+                        Location.toLocation(memberParts[CITY_INDEX]));
+                mlist[i] = member;
+            }
+        }
+        sc.close();
     }
 }
