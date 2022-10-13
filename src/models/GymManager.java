@@ -13,17 +13,14 @@ public class GymManager {
     private static final String EXPIRATION_ERROR = "Expiration date ";
     private static final int A_COMMAND_LENGTH = 6;
     private static final int R_COMMAND_LENGTH = 4;
-    private static final int C_COMMAND_LENGTH = 5;
-    private static final int D_COMMAND_LENGTH = 5;
-    private static final int AR_FNAME_INDEX = 1;
-    private static final int AR_LNAME_INDEX = 2;
-    private static final int AR_DOB_INDEX = 3;
-    private static final int AR_EXP_INDEX = 4;
-    private static final int AR_LOC_INDEX = 5;
-    private static final int CD_CLASS_INDEX = 1;
-    private static final int CD_FNAME_INDEX = 2;
-    private static final int CD_LNAME_INDEX = 3;
-    private static final int CD_DOB_INDEX = 4;
+    private static final int C_COMMAND_LENGTH = 7;
+    private static final int D_COMMAND_LENGTH = 7;
+    private static final int ARG_1 = 1;
+    private static final int ARG_2 = 2;
+    private static final int ARG_3 = 3;
+    private static final int ARG_4 = 4;
+    private static final int ARG_5 = 5;
+    public static final int ARG_6 = 6;
 
     MemberDatabase database;
     ClassSchedule schedule;
@@ -56,12 +53,10 @@ public class GymManager {
     /**
      * Processes terminal commands
      * @param command   command indicating type of task
-     * @param line  entire instruction
+     * @param line      entire instruction
      */
     private void runCommand(String command, String line) throws FileNotFoundException {
-        if(command.trim().length() == 0){
-            return;
-        }
+        if(command.trim().length() == 0) { return; }
         if(command.equals("LS")) { handleLoadSchedule(); }
         else if(command.equals("LM")) { handleLoadMemberList(); }
         // TODO: add a member with the standard membership to the member database
@@ -70,18 +65,18 @@ public class GymManager {
         else if(command.equals("AP")) { handleAddPremiumMember(line); }
         else if(command.equals("PF")) { database.print(true); }
         // TODO: check in for in person class
-        else if(command.equals("C")) { handleCheckIn(line); }
-        else if(command.equals("CG")) { handleCheckInGuest(line); }
+        else if(command.equals("C")) { handleCheckIn(line, false); }
+        else if(command.equals("CG")) { handleCheckIn(line, true); }
         // TODO: drop in person class
-        else if(command.equals("D")) { handleDropClass(line); }
-        else if(command.equals("DG")) { handleDropGuestClass(line); }
+        else if(command.equals("D")) { handleDropClass(line, false); }
+        else if(command.equals("DG")) { handleDropClass(line, true); }
         else if(command.equals("R")) { handleCancelMembership(line); }
         else if(command.equals("P")) { database.print(false); }
         else if(command.equals("PC")) {  database.printByLocation(); }
         else if(command.equals("PN")) { database.printByName(); }
         else if(command.equals("PD")) { database.printByExpirationDate(); }
         else if(command.equals("S")) { schedule.printSchedule(); }
-        else{ System.out.println(command + " is an invalid command!"); }
+        else { System.out.println(command + " is an invalid command!"); }
     }
 
     /**
@@ -116,25 +111,25 @@ public class GymManager {
         String[] parts = command.split(" ");
         if(parts.length < A_COMMAND_LENGTH) return false;
 
-        Date dob = new Date(parts[AR_DOB_INDEX]);
-        Date expire = new Date(parts[AR_EXP_INDEX]);
-        String error = checkDateErrors(dob, parts[AR_DOB_INDEX], expire, parts[AR_EXP_INDEX]);
+        Date dob = new Date(parts[ARG_3]);
+        Date expire = new Date(parts[ARG_4]);
+        String error = checkDateErrors(dob, parts[ARG_3], expire, parts[ARG_4]);
         if(error != null){
             System.out.println(error);
             return false;
         }
-        Location location = Location.toLocation(parts[AR_LOC_INDEX]);
+        Location location = Location.toLocation(parts[ARG_5]);
         if(location == null) {
-            System.out.println(parts[AR_LOC_INDEX] + ": invalid location!");
+            System.out.println(parts[ARG_5] + ": invalid location!");
             return false;
         }
-        Member member = new Member(parts[AR_FNAME_INDEX], parts[AR_LNAME_INDEX], dob, expire, location);
+        Member member = new Member(parts[ARG_1], parts[ARG_2], dob, expire, location);
         if(database.contains(member)) {
-            System.out.println(parts[AR_FNAME_INDEX] + " " + parts[AR_LNAME_INDEX] + " is already in the database.");
+            System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " is already in the database.");
             return false;
         }
         if(database.add(member)){
-            System.out.println(parts[AR_FNAME_INDEX] + " " + parts[AR_LNAME_INDEX] + " added.");
+            System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " added.");
         }
         return true;
     }
@@ -165,7 +160,7 @@ public class GymManager {
 
 
     /**
-     * Handles inputs with command C
+     * Handles inputs with command C and CG
      * Parses command for fitness class and member information
      * Checks in the member if
      * 1. The member is in the database
@@ -178,61 +173,59 @@ public class GymManager {
      * @param command Entire line of instruction containing member and class information
      * @return true if member checked in for class successfully, false otherwise
      */
-    private boolean handleCheckIn(String command){
+    private boolean handleCheckIn(String command, boolean isGuest) {
         String[] parts = command.split(" ");
-        if(parts.length < C_COMMAND_LENGTH) return false;
-        Date dob = new Date(parts[CD_DOB_INDEX]);
-        String fname = parts[CD_FNAME_INDEX];
-        String lname = parts[CD_LNAME_INDEX];
-        String className = parts[CD_CLASS_INDEX];
+        if (parts.length != C_COMMAND_LENGTH) return false;
 
-        if (!dob.isValid()){
+        Date dob = new Date(parts[ARG_6]);
+        String fname = parts[ARG_4];
+        String lname = parts[ARG_5];
+        String className = parts[ARG_1];
+        String instructor = parts[ARG_2];
+        String location = parts[ARG_3];
+
+        if(!dob.isValid()) {
             System.out.println(DOB_ERROR + dob + ": invalid calendar date!");
             return false;
         }
         Member member = database.getMember(new Member(fname, lname, dob));
-        if (member == null){
+        if (member == null) {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
             return false;
         }
-        if (member.getExpire().isPast()){
+        if (member.getExpire().isPast()) {
             System.out.println(fname + " " + lname + " " + dob + " membership expired.");
             return false;
         }
-        if (!schedule.hasClass(className)){
+        if (!schedule.hasClass(className, instructor, location)) {
             System.out.println(className + " class does not exist.");
             return false;
         }
-        FitnessClass fitClass = schedule.getClass(className);
-        if (fitClass.contains(member)){
+        FitnessClass fitClass = schedule.getClass(className, instructor, location);
+        if (fitClass.contains(member)) {
             System.out.println(fname + " " + lname + " has already checked in " + fitClass.getName() + ".");
             return false;
         }
         FitnessClass otherClass = schedule.sameTimeClass(member, fitClass);
-        if (otherClass != null){
-            System.out.println(fitClass.getName() + " time conflict -- " + fname + " " + lname + " has already checked in " + otherClass.getName() + ".");
+        if (otherClass != null) {
+            System.out.println(fitClass.getName() + " time conflict -- " + fname + " " + lname
+                    + " has already checked in " + otherClass.getName() + ".");
             return false;
         }
-        System.out.println(fname + " " + lname + " checked in " + fitClass.getName() + ".");
-        fitClass.add(member);
+        if(isGuest){
+            fitClass.addGuest(member);
+            System.out.println(fname + " " + lname + " checked in " + fitClass.getName() + ".");
+        }
+        else{
+            fitClass.add(member);
+            System.out.println(fname + " " + lname + " checked in " + fitClass.getName() + ".");
+        }
         return true;
     }
 
 
     /**
-     * Handles inputs with command CG
-     * Parses command for fitness class and member information
-     * Checks in guest
-     * Displays appropriate error messages if unable to check in member to class
-     * @param command Entire line of instruction
-     * @return true if member checked in for class successfully, false otherwise
-     */
-    private boolean handleCheckInGuest(String command){
-        return true;
-    }
-
-    /**
-     * Handles inputs with command D
+     * Handles inputs with command D and DG
      * Parses command for fitness class and member information
      * Drops the member from the class if
      * 1. The member is initially checked into the class
@@ -242,44 +235,40 @@ public class GymManager {
      * @param command Entire line of instruction containing member and class information
      * @return true if member dropped from class successfully, false otherwise
      */
-    private boolean handleDropClass(String command){
+    private boolean handleDropClass(String command, boolean isGuest){
         String[] parts = command.split(" ");
         if(parts.length < D_COMMAND_LENGTH) return false;
 
+        Date dob = new Date(parts[ARG_6]);
+        String fname = parts[ARG_4];
+        String lname = parts[ARG_5];
+        String className = parts[ARG_1];
+        String instructor = parts[ARG_2];
+        String location = parts[ARG_3];
+
         // check if DOB is valid
-        Date dob = new Date(parts[CD_DOB_INDEX]);
         if(!dob.isValid()) {
-            System.out.println(DOB_ERROR + parts[CD_DOB_INDEX] + ": invalid calendar date!"
+            System.out.println(DOB_ERROR + parts[ARG_4] + ": invalid calendar date!"
             );
             return false;
         }
         // check if fitness class exists
-        FitnessClass fitClass = schedule.getClass(parts[CD_CLASS_INDEX]);
+        FitnessClass fitClass = schedule.getClass(className, instructor, location);
         if(fitClass == null){
-            System.out.println(parts[CD_CLASS_INDEX] + " class does not exist.");
+            System.out.println(parts[ARG_1] + " class does not exist.");
             return false;
         }
         // check if user is registered
-        Member member = new Member(parts[CD_FNAME_INDEX], parts[CD_LNAME_INDEX], dob);
+        Member member = new Member(fname, lname, dob);
         if(!fitClass.contains(member)){
-            System.out.println(parts[CD_FNAME_INDEX] + " " + parts[CD_LNAME_INDEX] +
-                    " is not a participant in " + parts[CD_CLASS_INDEX] + ".");
+            System.out.println(fname + " " + lname +
+                    " is not a participant in " + className + ".");
             return false;
         }
-        if(!fitClass.dropClass(member)){ return false; }
-        System.out.println(parts[CD_FNAME_INDEX] + " " + parts[CD_LNAME_INDEX]
-                + " dropped " + parts[CD_CLASS_INDEX] + ".");
-        return true;
-    }
-
-    /**
-     * Handles inputs with command DG
-     * Parses command for fitness class and member information
-     * Displays appropriate error messages if unable to drop member from class
-     * @param command Entire line of instruction containing member and class information
-     * @return true if member dropped from class successfully, false otherwise
-     */
-    private boolean handleDropGuestClass(String command){
+        if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
+            return false;
+        }
+        System.out.println(fname + " " + lname + " dropped " + className + ".");
         return true;
     }
 
@@ -293,11 +282,11 @@ public class GymManager {
     private boolean handleCancelMembership(String command){
         String[] parts = command.split(" ");
         if(parts.length < R_COMMAND_LENGTH) return false;
-        if(database.remove(new Member(parts[AR_FNAME_INDEX], parts[AR_LNAME_INDEX], new Date(parts[AR_DOB_INDEX])))){
-            System.out.println(parts[AR_FNAME_INDEX] + " " + parts[AR_LNAME_INDEX] + " removed.");
+        if(database.remove(new Member(parts[ARG_1], parts[ARG_2], new Date(parts[ARG_3])))){
+            System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " removed.");
         }
         else{
-            System.out.println(parts[AR_FNAME_INDEX] + " " + parts[AR_LNAME_INDEX] + " is not in the database.");
+            System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " is not in the database.");
         }
         return true;
     }

@@ -5,25 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="project 2 set up">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/input/classSchedule.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/input/memberList.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/FamilyMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/PremiumMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/models/Schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Schedule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/ClassSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RunProject1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
     </list>
-    <list id="f3483910-2b62-4991-a3bb-f38bc0561259" name="Changes by Jackson" comment="">
-      <change beforePath="$PROJECT_DIR$/src/models/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
-    </list>
+    <list id="f3483910-2b62-4991-a3bb-f38bc0561259" name="Changes by Jackson" comment="Changes by Jackson - project 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,20 +27,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/models/ClassSchedule.java">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="4" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-        <range start1="8" end1="10" start2="10" end2="17" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="12" end1="13" start2="19" end2="20" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-        <range start1="14" end1="19" start2="21" end2="23" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="26" end1="28" start2="30" end2="32" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-        <range start1="38" end1="39" start2="42" end2="43" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-        <range start1="63" end1="64" start2="67" end2="68" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-        <range start1="73" end1="73" start2="77" end2="96" changelist="f3483910-2b62-4991-a3bb-f38bc0561259" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -239,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664816874532</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="project 2 set up">
+      <created>1665614797464</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1665614797464</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes by Jackson - project 2">
+      <created>1665614818479</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1665614818479</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +251,7 @@
     <MESSAGE value="Changes by Jackson" />
     <MESSAGE value="Update javadoc" />
     <MESSAGE value="project 2 set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="project 2 set up" />
+    <MESSAGE value="Changes by Jackson - project 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson - project 2" />
   </component>
 </project>

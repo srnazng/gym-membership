@@ -36,13 +36,19 @@ public class ClassSchedule {
 
     /**
      * Get the fitness class in the schedule given the name of the class
-     * @param className Name of the fitness class
+     * @param className     Name of the fitness class
+     * @param instructor    Name of instructor teaching the fitness class
+     * @param city          City of the fitness class
      * @return the fitness class with name className
      */
-    public FitnessClass getClass(String className){
+    public FitnessClass getClass(String className, String instructor, String city){
         for(FitnessClass fitClass : classes){
-            if(fitClass.getName().equalsIgnoreCase(className)){
-                return fitClass;
+            if(fitClass.getName().equalsIgnoreCase(className) &&
+                    fitClass.getInstructor().equalsIgnoreCase(instructor)){
+                if((city == null && fitClass.getLocation() == null)
+                        || Location.toLocation(city).equals(fitClass.getLocation())){
+                    return fitClass;
+                }
             }
         }
         return null;
@@ -53,8 +59,8 @@ public class ClassSchedule {
      * @param className Name of the class
      * @return true if schedule contains class of className, false otherwise
      */
-    public boolean hasClass(String className){
-        return getClass(className) != null;
+    public boolean hasClass(String className, String instructor, String city){
+        return getClass(className, instructor, city) != null;
     }
 
     /**

@@ -10,7 +10,8 @@ public enum Location {
     EDISON("Edison", "08837", "Middlesex"),
     FRANKLIN("Franklin", "08873", "Somerset"),
     PISCATAWAY("Piscataway","08854", "Middlesex"),
-    SOMERVILLE("Somerville", "08876", "Somerset");
+    SOMERVILLE("Somerville", "08876", "Somerset"),
+    ONLINE(null, null, null);
 
     private final String city;
     private final String county;

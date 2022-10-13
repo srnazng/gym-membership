@@ -23,22 +23,9 @@ public class FitnessClass {
      * @param name          Name of class
      * @param instructor    Name of the class instructor
      * @param time          Time of the class (morning or afternoon)
-     */
-    FitnessClass(String name, String instructor, Time time){
-        this.name = name;
-        this.instructor = instructor;
-        this.time = time;
-        checkedInMembers = new ArrayList<>();
-    }
-
-    /**
-     * Create a new Fitness Class object with no checked in members
-     * @param name          Name of class
-     * @param instructor    Name of the class instructor
-     * @param time          Time of the class (morning or afternoon)
      * @param location      Location of class
      */
-    FitnessClass(String name, String instructor, Time time, Location location ){
+    FitnessClass(String name, String instructor, Time time, Location location){
         this.name = name;
         this.location = location;
         this.instructor = instructor;
@@ -54,10 +41,22 @@ public class FitnessClass {
     public String getName(){ return name; }
 
     /**
-     * Time of fitness class
+     * Get time of fitness class
      * @return MORNING or AFTERNOON
      */
     public Time getTime(){ return time; }
+
+    /**
+     * Get location of fitness class
+     * @return Location object
+     */
+    public Location getLocation(){ return location; }
+
+    /**
+     * Get fitness class instructor
+     * @return Name of fitness class instructor
+     */
+    public String getInstructor(){ return instructor; }
 
 
     /**
