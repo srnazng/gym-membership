@@ -209,6 +209,12 @@ public class MemberDatabase {
         return mlist[index];
     }
 
+    /**
+     * Reads members line by line from the text file
+     * memberList.txt and loads the members into
+     * the member database.
+     * @throws FileNotFoundException
+     */
     public void loadMembers() throws FileNotFoundException {
         File file = new File("src/input/memberList.txt");
         Scanner sc = new Scanner(file);

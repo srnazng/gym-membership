@@ -95,6 +95,11 @@ public class ClassSchedule {
         return null;
     }
 
+    /**
+     * Reads the predefined file classSchedule.txt
+     * And loads it into the class schedule.
+     * @throws FileNotFoundException
+     */
     public void loadSchedule() throws FileNotFoundException {
         File file = new File("src/input/classSchedule.txt");
         Scanner sc = new Scanner(file);

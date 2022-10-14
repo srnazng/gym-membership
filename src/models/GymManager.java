@@ -89,18 +89,27 @@ public class GymManager {
         if(parts.length < A_COMMAND_LENGTH) return false;
 
         Date dob = new Date(parts[ARG_3]);
-        Date expire = new Date(parts[ARG_4]);
-        String error = checkDateErrors(dob, parts[ARG_3], expire, parts[ARG_4]);
+        String error = checkBirthdayErrors(dob);
         if(error != null){
             System.out.println(error);
             return false;
         }
-        Location location = Location.toLocation(parts[ARG_5]);
+        Location location = Location.toLocation(parts[ARG_4]);
         if(location == null) {
-            System.out.println(parts[ARG_5] + ": invalid location!");
+            System.out.println(parts[ARG_4] + ": invalid location!");
             return false;
         }
-        Member member = new Member(parts[ARG_1], parts[ARG_2], dob, expire, location);
+        Member member;
+        if(membershipType == Plan.PREMIUM){
+            member = new Premium(parts[ARG_1], parts[ARG_2], dob, location);
+        }
+        else if(membershipType == Plan.FAMILY){
+            member = new Family(parts[ARG_1], parts[ARG_2], dob, location);
+        }
+        else{
+            member = new Member(parts[ARG_1], parts[ARG_2], dob, location);
+        }
+
         if(database.contains(member)) {
             System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " is already in the database.");
             return false;
@@ -243,26 +252,15 @@ public class GymManager {
         return true;
     }
 
-    /**
-     * Return errors if DOB or expiration date cannot be used for member
-     * @param dob           date of birth represented as Date object
-     * @param dobText       date of birth represented as String
-     * @param expiration    expiration date represented as Date object
-     * @param expText       expiration date represented as String
-     * @return  error message if there is an error, null otherwise
-     */
-    private String checkDateErrors(Date dob, String dobText, Date expiration, String expText){
-        if(!dob.isValid()){
-            return DOB_ERROR + dobText + ": invalid calendar date!";
+    private String checkBirthdayErrors(Date dob) {
+        if (!dob.isValid()) {
+            return DOB_ERROR + dob + ": invalid calendar date!";
         }
-        if(!dob.isPast()){
-            return DOB_ERROR + dobText + ": cannot be today or a future date!";
+        if (!dob.isPast()) {
+            return DOB_ERROR + dob + ": cannot be today or a future date!";
         }
-        if(!dob.isEighteen()){
-            return DOB_ERROR + dobText + ": must be 18 or older to join!";
-        }
-        if(!expiration.isValid()){
-            return EXPIRATION_ERROR + expText + ": invalid calendar date!";
+        if (!dob.isEighteen()) {
+            return DOB_ERROR + dob + ": must be 18 or older to join!";
         }
         return null;
     }
