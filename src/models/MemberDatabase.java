@@ -87,12 +87,17 @@ public class MemberDatabase {
      * If there are no members, a message indicating database is empty is printed.
      * Otherwise, a list of members is printed without sorting.
      */
-    public void print(boolean includeFees) {
+    public void printDefault(boolean includeFees) {
         if(size < 1){
             System.out.println("Member database is empty!");
             return;
         }
         System.out.println("\n-list of members-");
+        print(includeFees);
+        System.out.println("-end of list-\n");
+    }
+
+    public void print(boolean includeFees){
         for (int i = 0; i < size; i++){
             String memberInfo = mlist[i].toString();
             if(includeFees){
@@ -100,7 +105,6 @@ public class MemberDatabase {
             }
             System.out.println(memberInfo);
         }
-        System.out.println("-end of list-\n");
     }
 
     /**
@@ -230,5 +234,9 @@ public class MemberDatabase {
             }
         }
         sc.close();
+
+        System.out.println("-list of members loaded-");
+        print(false);
+        System.out.println("-end of list-");
     }
 }

@@ -69,4 +69,14 @@ public enum Location {
         return city.toUpperCase() + ", " + zipCode +
                 ", " + county.toUpperCase();
     }
+
+    public boolean equals(Location l){
+        if(l == null){
+            return false;
+        }
+        if(this.name().equals(l.name())){
+            return true;
+        }
+        return false;
+    }
 }

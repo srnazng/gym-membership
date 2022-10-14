@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class GymManager {
     private static final String DOB_ERROR = "DOB ";
     private static final String EXPIRATION_ERROR = "Expiration date ";
-    private static final int A_COMMAND_LENGTH = 6;
+    private static final int A_COMMAND_LENGTH = 5;
     private static final int R_COMMAND_LENGTH = 4;
     private static final int C_COMMAND_LENGTH = 7;
     private static final int D_COMMAND_LENGTH = 7;
@@ -21,6 +21,7 @@ public class GymManager {
     private static final int ARG_4 = 4;
     private static final int ARG_5 = 5;
     public static final int ARG_6 = 6;
+    enum Plan { STANDARD, FAMILY, PREMIUM };
 
     MemberDatabase database;
     ClassSchedule schedule;
@@ -57,21 +58,18 @@ public class GymManager {
      */
     private void runCommand(String command, String line) throws FileNotFoundException {
         if(command.trim().length() == 0) { return; }
-        if(command.equals("LS")) { handleLoadSchedule(); }
-        else if(command.equals("LM")) { handleLoadMemberList(); }
-        // TODO: add a member with the standard membership to the member database
-        else if(command.equals("A")) { handleAddMember(line); }
-        else if(command.equals("AF")) { handleAddFamilyMember(line); }
-        else if(command.equals("AP")) { handleAddPremiumMember(line); }
-        else if(command.equals("PF")) { database.print(true); }
-        // TODO: check in for in person class
+        if(command.equals("LS")) { schedule.loadSchedule(); }
+        else if(command.equals("LM")) { database.loadMembers(); }
+        else if(command.equals("A")) { handleAddMember(line, Plan.STANDARD); }
+        else if(command.equals("AF")) { handleAddMember(line, Plan.FAMILY); }
+        else if(command.equals("AP")) { handleAddMember(line, Plan.PREMIUM); }
+        else if(command.equals("PF")) { database.printDefault(true); }
         else if(command.equals("C")) { handleCheckIn(line, false); }
         else if(command.equals("CG")) { handleCheckIn(line, true); }
-        // TODO: drop in person class
         else if(command.equals("D")) { handleDropClass(line, false); }
         else if(command.equals("DG")) { handleDropClass(line, true); }
         else if(command.equals("R")) { handleCancelMembership(line); }
-        else if(command.equals("P")) { database.print(false); }
+        else if(command.equals("P")) { database.printDefault(false); }
         else if(command.equals("PC")) {  database.printByLocation(); }
         else if(command.equals("PN")) { database.printByName(); }
         else if(command.equals("PD")) { database.printByExpirationDate(); }
@@ -80,34 +78,13 @@ public class GymManager {
     }
 
     /**
-     * Handles inputs with command type LS.
-     * Load the fitness class schedule from the file classSchedule.txt
-     * to the class schedule in the software system.
-     * @return true if schedule successfully loaded, false otherwise
-     */
-    private boolean handleLoadSchedule() throws FileNotFoundException {
-        schedule.loadSchedule();
-        return true;
-    }
-
-    /**
-     * Handles inputs with command type LM.
-     * Load a list of members from the file memberList.txt to the member database.
-     * @return true if schedule successfully loaded, false otherwise
-     */
-    private boolean handleLoadMemberList() throws FileNotFoundException {
-        database.loadMembers();
-        return true;
-    }
-
-    /**
-     * Handles inputs with command type A
+     * Handles inputs with command type A, AF, AP
      * Parses command for member information
      * Checks if member is valid and if so, adds member to member database
      * @param command   Entire line of instruction containing member information
      * @return true if member successfully added, false otherwise
      */
-    private boolean handleAddMember(String command){
+    private boolean handleAddMember(String command, Plan membershipType){
         String[] parts = command.split(" ");
         if(parts.length < A_COMMAND_LENGTH) return false;
 
@@ -133,31 +110,6 @@ public class GymManager {
         }
         return true;
     }
-
-    /**
-     * Handles inputs with command type AF
-     * Parses command for member information.
-     * Checks if member is valid and if so, adds member with Family Membership
-     * to member database.
-     * @param command   Entire line of instruction containing member information
-     * @return true if member successfully added, false otherwise
-     */
-    private boolean handleAddFamilyMember(String command){
-        return true;
-    }
-
-    /**
-     * Handles inputs with command type AF
-     * Parses command for member information.
-     * Checks if member is valid and if so, adds member with Premium Membership
-     * to member database.
-     * @param command   Entire line of instruction containing member information
-     * @return true if member successfully added, false otherwise
-     */
-    private boolean handleAddPremiumMember(String command){
-        return true;
-    }
-
 
     /**
      * Handles inputs with command C and CG

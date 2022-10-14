@@ -28,4 +28,6 @@ public class Constants {
     public static final int STANDARD_PAYMENTS_PER_YEAR = 4;
     public static final int FAMILY_PAYMENTS_PER_YEAR = 4;
     public static final int PREMIUM_PAYMENTS_PER_YEAR = 1;
+    public static final int STANDARD_FAMILY_EXPIRATION = 3;
+    public static final int PREMIUM_EXPIRATION = 12;
 }

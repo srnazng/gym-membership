@@ -71,11 +71,10 @@ public class Date implements Comparable<Date> {
 
     /**
      * Create new Date object given a Calendar object
-     *
      * @param calDate Calendar containing year, month, and day of new Date
      */
     public Date(Calendar calDate) {
-        this.month = calDate.get(Calendar.MONTH);
+        this.month = calDate.get(Calendar.MONTH) + 1;
         this.day = calDate.get(Calendar.DAY_OF_MONTH);
         this.year = calDate.get(Calendar.YEAR);
     }

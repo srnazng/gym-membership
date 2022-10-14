@@ -1,6 +1,6 @@
 package models;
 
-import java.text.DecimalFormat;
+import java.util.Calendar;
 
 /**
  * The Member class represents a member of the gym and is comparable based on name.
@@ -18,11 +18,34 @@ public class Member implements Comparable<Member>{
     private Location location;
 
     /**
+     * Get the location of Member's gym
+     * @return Location object
+     */
+    protected Location getLocation() {
+        return location;
+    }
+
+    /**
      * Creates a member object with all fields completed
      * @param fname     first name
      * @param lname     last name
      * @param dob       date of birth
-     * @param expire    expiration date
+     * @param location  location (county, city, zipcode)
+     */
+    public Member(String fname, String lname, Date dob, Location location){
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.expire = calculateExpirationDate();
+        this.location = location;
+    }
+
+    /**
+     * Creates a member object with all fields completed
+     * @param fname     first name
+     * @param lname     last name
+     * @param dob       date of birth
+     * @param expire    date of membership expiration
      * @param location  location (county, city, zipcode)
      */
     public Member(String fname, String lname, Date dob, Date expire, Location location){
@@ -48,6 +71,18 @@ public class Member implements Comparable<Member>{
     }
 
     /**
+     * Calculate the expiration date for Standard and Family Plan
+     * members based on taday's date.
+     * @return  Date object that is three months from today
+     */
+    protected Date calculateExpirationDate(){
+        Calendar threeMonthsLater = Calendar.getInstance();
+        threeMonthsLater.add(Calendar.MONTH, Constants.STANDARD_FAMILY_EXPIRATION);
+        return new Date(threeMonthsLater);
+    }
+
+
+    /**
      * Get the expiration date of the Member
      * @return expiration date as a Date object
      */
@@ -69,14 +104,23 @@ public class Member implements Comparable<Member>{
      */
     @Override
     public String toString() {
+        String memberString = fname + " " + lname + ", DOB: " + dob.toString();
         if(expire.isPast()){
-            return fname + " " + lname + ", DOB: " + dob.toString() +
-                    ", Membership expired " + expire.toString() +
-                    ", Location: " + location;
+            memberString = memberString + ", Membership expired ";
         }
-        return fname + " " + lname + ", DOB: " + dob.toString() +
-                ", Membership expires " + expire.toString() +
-                ", Location: " + location;
+        else{
+            memberString = memberString + ", Membership expires ";
+        }
+        memberString = memberString + expire.toString() + ", Location: " + location;
+        if(this instanceof Family){
+            if(this instanceof Premium){
+                memberString = memberString + ", (Premium) Guest-pass remaining: ";
+            }
+            else{
+                memberString = memberString + ", (Family) Guest-pass remaining: ";
+            }
+        }
+        return memberString;
     }
 
     /**
@@ -135,6 +179,13 @@ public class Member implements Comparable<Member>{
      */
     public int compareExpiration(Member member){
         return expire.compareTo(member.expire);
+    }
+
+    public boolean classLocationAllowed(Location classLoc){
+        if(location != classLoc){
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -214,9 +265,5 @@ public class Member implements Comparable<Member>{
             System.out.println(member1.fname + " " + member1.lname + " compared to "
                     + member2.fname + " " + member2.lname + ": failed. Please do better");
         }
-    }
-
-    public boolean useGuestPass(){
-        return false;
     }
 }

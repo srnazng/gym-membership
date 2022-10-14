@@ -25,15 +25,26 @@ public class ClassSchedule {
     }
 
     /**
-     * Print the list of fitness classes
+     * Print schedule and format with header and footer
      */
     public void printSchedule(){
         if(numClasses > 0 && classes != null){
             System.out.println("\n-Fitness classes-");
-            for(int i = 0; i < classes.length; i++){
-                System.out.println(classes[i]);
-            }
+            printClasses();
             System.out.println();
+            System.out.println("-end of class list.");
+        }
+        else{
+            System.out.println("Fitness class schedule is empty.");
+        }
+    }
+
+    /**
+     * Print all the classes in the schedule
+     */
+    public void printClasses(){
+        for(int i = 0; i < classes.length; i++){
+            System.out.println(classes[i]);
         }
     }
 
@@ -45,13 +56,12 @@ public class ClassSchedule {
      * @return the fitness class with name className
      */
     public FitnessClass getClass(String className, String instructor, String city){
-        for(FitnessClass fitClass : classes){
+        for(int i=0; i<numClasses; i++){
+            FitnessClass fitClass = classes[i];
             if(fitClass.getName().equalsIgnoreCase(className) &&
-                    fitClass.getInstructor().equalsIgnoreCase(instructor)){
-                if((city == null && fitClass.getLocation() == null)
-                        || Location.toLocation(city).equals(fitClass.getLocation())){
+                    fitClass.getInstructor().equalsIgnoreCase(instructor) &&
+                    city.equalsIgnoreCase(fitClass.getLocation().name())){
                     return fitClass;
-                }
             }
         }
         return null;
@@ -99,7 +109,7 @@ public class ClassSchedule {
         sc = new Scanner(file);
         classes = new FitnessClass[numClasses];
 
-        for (int i = 0; i < numClasses; i++){
+        for (int i = 0; i < numClasses && sc.hasNextLine(); i++){
             String classString = sc.nextLine();
             String[] classParts = classString.split("\\s+");
             if(classParts.length == NUM_ARGS){
@@ -110,5 +120,9 @@ public class ClassSchedule {
             }
         }
         sc.close();
+
+        System.out.println("\n-Fitness classes loaded-");
+        printClasses();
+        System.out.println("-end of class list.");
     }
 }

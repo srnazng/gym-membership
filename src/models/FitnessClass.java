@@ -77,7 +77,7 @@ public class FitnessClass {
     private String getClassMemberList(){
         String toReturn = "";
         if(checkedInMembers.size() > 0){
-            toReturn = "\n\t** participants **\n";
+            toReturn = "\n- Participants -\n";
         }
         else{
             return "";
@@ -85,7 +85,7 @@ public class FitnessClass {
 
         for(int i=0; i<checkedInMembers.size(); i++){
             if(checkedInMembers.get(i) != null){
-                toReturn = toReturn + "\t\t" + checkedInMembers.get(i).toString();
+                toReturn = toReturn + "\t" + checkedInMembers.get(i).toString();
             }
             if(i != checkedInMembers.size() - 1){
                 toReturn = toReturn + "\n";
@@ -101,8 +101,11 @@ public class FitnessClass {
      * @return true if member successfully added, false otherwise
      */
     public boolean add(Member member) {
-        if (checkedInMembers.contains(member)) return false;
+        if (checkedInMembers.contains(member) || !member.classLocationAllowed(location)) {
+            return false;
+        }
         checkedInMembers.add(member);
+        getClassMemberList();
         return true;
     }
 
@@ -113,13 +116,15 @@ public class FitnessClass {
      * @return true if member successfully added, false otherwise
      */
     public boolean addGuest(Member member) {
-        if(!(member instanceof FamilyMember) && !(member instanceof PremiumMember)){
+        if(!(member instanceof Family) && !(member instanceof Premium)){
             return false;
         }
-        if(!member.useGuestPass()){
+        if(member.getLocation() != location){
             return false;
         }
+        ((Family) member).useGuestPass();
         checkedInGuests.add(member);
+        getClassMemberList();
         return true;
     }
 
@@ -130,10 +135,7 @@ public class FitnessClass {
      * @return false if member is not in the class, otherwise true
      */
     public boolean dropClass(Member member){
-        if (!checkedInMembers.contains(member)) return false;
-        int mindex = find(member);
-        checkedInMembers.remove(member);
-        return true;
+        return checkedInMembers.remove(member);
     }
 
     /**
@@ -143,18 +145,6 @@ public class FitnessClass {
      */
     public boolean dropGuestClass(Member member){
         return checkedInGuests.remove(member);
-    }
-
-    /**
-     * Find the index of the given Member in the list of participants
-     * @param member Member to be found
-     * @return  index of member in list of participants
-     */
-    private int find(Member member){
-        for (int i = 0; i < checkedInMembers.size(); i++){
-            if (member.equals(checkedInMembers.get(i))) return i;
-        }
-        return Constants.NOT_FOUND;
     }
 
     public boolean contains(Member member){
