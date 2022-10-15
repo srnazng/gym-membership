@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="Jackson push">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="Pushed Unit Tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS213_Project1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS213_Project1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/ClassSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/DateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DateTest.java" afterDir="false" />
     </list>
     <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson" />
@@ -55,7 +55,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DateTest.testDaysInLongMonth">
+  <component name="RunManager" selected="Application.RunProject1">
     <configuration name="Date" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="models.Date" />
       <module name="CS213_Project1" />
@@ -82,6 +82,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CS213_Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DateTest.testDaysInLongMonth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CS213_Project1" />
       <extension name="coverage">
@@ -100,8 +115,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DateTest.testDaysInLongMonth" />
         <item itemvalue="Application.RunProject1" />
+        <item itemvalue="JUnit.DateTest" />
+        <item itemvalue="JUnit.DateTest.testDaysInLongMonth" />
         <item itemvalue="Application.Date" />
       </list>
     </recent_temporary>
@@ -178,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664651664268</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Pushed Unit Tests">
+      <created>1665770375712</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665770375712</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +221,7 @@
     <MESSAGE value="Jackson changes" />
     <MESSAGE value="serena edits" />
     <MESSAGE value="Changes by Jackson" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson" />
+    <MESSAGE value="Pushed Unit Tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushed Unit Tests" />
   </component>
 </project>

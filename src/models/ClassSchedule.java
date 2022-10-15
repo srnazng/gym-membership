@@ -49,7 +49,7 @@ public class ClassSchedule {
     }
 
     /**
-     * Get the fitness class in the schedule given the name of the class
+     * Get the fitness class in the schedule given the name of the class, instructor, and city
      * @param className     Name of the fitness class
      * @param instructor    Name of instructor teaching the fitness class
      * @param city          City of the fitness class
@@ -68,13 +68,41 @@ public class ClassSchedule {
     }
 
     /**
-     * Checks if the gym schedule includes a fitness class given the name of the class
-     * @param className Name of the class
-     * @return true if schedule contains class of className, false otherwise
+     * Check if a fitness class in the schedule exists given the name of the class instructor, and city
+     * @param className Name of the fitness class
+     * @param instructor Name of the instructor teaching the fitness class
+     * @param city City of the fitness class
+     * @return True if there exists fitness class with that name, instructor, and city, false otherwise.
      */
     public boolean hasClass(String className, String instructor, String city){
         return getClass(className, instructor, city) != null;
     }
+
+    /**
+     * Checks if the gym schedule includes a fitness class taught by
+     * a given instructor.
+     * @param Name of the instructor
+     * @return true if schedule contains class taught by instructor, false otherwise
+     */
+    public boolean hasInstructor(String instructor){
+        for (int i = 0; i < numClasses; i++){
+            if (classes[i].getInstructor().equalsIgnoreCase(instructor)) return true;
+        }
+        return false;
+    }
+
+    /**
+     * Checks if the gym schedule includes a fitness class with a given name
+     * @param className Name of the class
+     * @return true if schedule contains class of className, false otherwise.
+     */
+    public boolean hasClassName(String className){
+        for (int i = 0; i < numClasses; i++){
+            if (classes[i].getName().equalsIgnoreCase(className)) return true;
+        }
+        return false;
+    }
+
 
     /**
      * Returns a fitness class that the member is registered for

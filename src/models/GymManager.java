@@ -154,12 +154,12 @@ public class GymManager {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
             return false;
         }
-        if (member.getExpire().isPast()) {
-            System.out.println(fname + " " + lname + " " + dob + " membership expired.");
+        if (!schedule.hasClass(className, instructor, location)) {
+            handleClassNotExist(className, instructor, location);
             return false;
         }
-        if (!schedule.hasClass(className, instructor, location)) {
-            System.out.println(className + " class does not exist.");
+        if (member.getExpire().isPast()) {
+            System.out.println(fname + " " + lname + " " + dob + " membership expired.");
             return false;
         }
         FitnessClass fitClass = schedule.getClass(className, instructor, location);
@@ -263,5 +263,21 @@ public class GymManager {
             return DOB_ERROR + dob + ": must be 18 or older to join!";
         }
         return null;
+    }
+
+    private void handleClassNotExist(String className, String instructor, String location){
+        if (!schedule.hasClassName(className)){
+            System.out.println(className + " - class does not exist.");
+        }
+        else if (Location.toLocation(location) == null){
+            System.out.println(location + " - invalid location.");
+        }
+        else if (!schedule.hasInstructor(instructor)){
+            System.out.println(instructor + " - instructor does not exist.");
+        }
+        else{
+            System.out.println(className + " by " + instructor + " does not exist at " + location);
+        }
+
     }
 }
