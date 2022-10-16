@@ -256,7 +256,15 @@ public class GymManager {
         if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
             return false;
         }
-        System.out.println(fname + " " + lname + " done with this class.");
+        if(isGuest){
+            System.out.println(fname + " " + lname + " Guest done with this class.");
+            if(member instanceof Family){
+                ((Family) member).incrementGuestPass();
+            }
+        }
+        else{
+            System.out.println(fname + " " + lname + " done with this class.");
+        }
         return true;
     }
 

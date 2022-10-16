@@ -21,6 +21,10 @@ public class Family extends Member {
         return true;
     }
 
+    public void incrementGuestPass(){
+        remainingGuestPasses++;
+    }
+
     public boolean hasGuestPass(){
         return remainingGuestPasses > 0;
     }
