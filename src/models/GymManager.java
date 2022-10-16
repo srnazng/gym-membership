@@ -10,7 +10,6 @@ import java.util.Scanner;
  */
 public class GymManager {
     private static final String DOB_ERROR = "DOB ";
-    private static final String EXPIRATION_ERROR = "Expiration date ";
     private static final int A_COMMAND_LENGTH = 5;
     private static final int R_COMMAND_LENGTH = 4;
     private static final int C_COMMAND_LENGTH = 7;
@@ -249,18 +248,21 @@ public class GymManager {
             System.out.println(fname + " " + lname + " " + parts[ARG_6] + " is not in the database.");
             return false;
         }
-        if(!fitClass.contains(member)){
-            System.out.println(fname + " " + lname + " did not check in.");
+        member = database.getMember(new Member(fname, lname, dob));
+        if(!isGuest && !fitClass.contains(member)){
+            System.out.println(fname + " " + lname + " done with the class.");
+            return false;
+        }
+        if(isGuest && !fitClass.containsGuest(member)){
+            System.out.println(fname + " " + lname + " Guest done with the class.");
             return false;
         }
         if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
             return false;
         }
         if(isGuest){
-            System.out.println(fname + " " + lname + " Guest done with this class.");
-            if(member instanceof Family){
-                ((Family) member).incrementGuestPass();
-            }
+            System.out.println(fname + " " + lname + " Guest done with the class.");
+            ((Family) member).incrementGuestPass();
         }
         else{
             System.out.println(fname + " " + lname + " done with this class.");

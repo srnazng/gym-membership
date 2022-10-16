@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="check in guest">
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="drop guest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Family.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
     </list>
     <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson" />
@@ -207,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665880551956</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="check in guest">
+      <created>1665881127054</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1665881127054</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +235,7 @@
     <MESSAGE value="Changes by Jackson" />
     <MESSAGE value="Pushed Unit Tests" />
     <MESSAGE value="check in guest" />
-    <option name="LAST_COMMIT_MESSAGE" value="check in guest" />
+    <MESSAGE value="drop guest" />
+    <option name="LAST_COMMIT_MESSAGE" value="drop guest" />
   </component>
 </project>
