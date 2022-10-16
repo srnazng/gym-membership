@@ -192,7 +192,7 @@ public class GymManager {
         }
         if(isGuest){
             fitClass.addGuest(member);
-            System.out.print(fname + " " + lname + " (guest) checked in " + fitClass.getName().toUpperCase() +
+            System.out.print(fname + " " + lname + " (guest) checked in " + fitClass.getName().toUpperCase() + " - " +
                     fitClass.getInstructor().toUpperCase() + ", " + fitClass.getTime().getTime() + ", " + fitClass.getLocation().name());
             System.out.print(fitClass.getClassMemberList());
             System.out.print(fitClass.getClassGuestList());
