@@ -58,6 +58,17 @@ public class FitnessClass {
      */
     public String getInstructor(){ return instructor; }
 
+    @Override
+    public boolean equals(Object obj){
+        FitnessClass otherClass = (FitnessClass) obj;
+        if(!otherClass.getName().equalsIgnoreCase(name) ||
+            !otherClass.getInstructor().equalsIgnoreCase(instructor) ||
+            !otherClass.getLocation().equals(location)){
+            return false;
+        }
+        return true;
+    }
+
 
     /**
      * Converts object to a String containing name of the class,
@@ -66,15 +77,19 @@ public class FitnessClass {
      */
     @Override
     public String toString() {
-        return name.toUpperCase() + " - " + instructor.toUpperCase() + ", " + time.getTime()
-                + ", " + location.name().toUpperCase() + getClassMemberList();
+        String toReturn = name.toUpperCase() + " - " + instructor.toUpperCase() + ", " + time.getTime()
+                + ", " + location.name().toUpperCase();
+        if(checkedInGuests.size() > 0 || checkedInMembers.size() > 0){
+            return toReturn + getClassMemberList() + getClassGuestList();
+        }
+        return toReturn + "\n";
     }
 
     /**
      * Gets a list of Members (as Strings) who are checked into the fitness class
      * @return  List of participants of the class, empty string if no participants
      */
-    private String getClassMemberList(){
+    public String getClassMemberList(){
         String toReturn = "";
         if(checkedInMembers.size() > 0){
             toReturn = "\n- Participants -\n";
@@ -90,6 +105,27 @@ public class FitnessClass {
             if(i != checkedInMembers.size() - 1){
                 toReturn = toReturn + "\n";
             }
+            else if(checkedInGuests.size() < 1){
+                toReturn = toReturn + "\n";
+            }
+        }
+        return toReturn;
+    }
+
+    public String getClassGuestList(){
+        String toReturn = "";
+        if(checkedInGuests.size() > 0){
+            toReturn = "\n- Guests -\n";
+        }
+        else{
+            return "";
+        }
+
+        for(int i=0; i<checkedInGuests.size(); i++){
+            if(checkedInGuests.get(i) != null){
+                toReturn = toReturn + "\t" + checkedInGuests.get(i).toString();
+            }
+            toReturn = toReturn + "\n";
         }
         return toReturn;
     }
@@ -101,11 +137,10 @@ public class FitnessClass {
      * @return true if member successfully added, false otherwise
      */
     public boolean add(Member member) {
-        if (checkedInMembers.contains(member) || !member.classLocationAllowed(location)) {
+        if (checkedInMembers.contains(member)) {
             return false;
         }
         checkedInMembers.add(member);
-        getClassMemberList();
         return true;
     }
 
@@ -149,5 +184,9 @@ public class FitnessClass {
 
     public boolean contains(Member member){
         return checkedInMembers.contains(member);
+    }
+
+    public boolean containsGuest(Member member){
+        return checkedInGuests.contains(member);
     }
 }

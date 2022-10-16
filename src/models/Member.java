@@ -181,13 +181,6 @@ public class Member implements Comparable<Member>{
         return expire.compareTo(member.expire);
     }
 
-    public boolean classLocationAllowed(Location classLoc){
-        if(location != classLoc){
-            return false;
-        }
-        return true;
-    }
-
     /**
      * Testbed main to test compareTo method
      * @param args  default parameters

@@ -137,14 +137,12 @@ public class GymManager {
     private boolean handleCheckIn(String command, boolean isGuest) {
         String[] parts = command.split(" ");
         if (parts.length != C_COMMAND_LENGTH) return false;
-
         Date dob = new Date(parts[ARG_6]);
         String fname = parts[ARG_4];
         String lname = parts[ARG_5];
         String className = parts[ARG_1];
         String instructor = parts[ARG_2];
         String location = parts[ARG_3];
-
         if(!dob.isValid()) {
             System.out.println(DOB_ERROR + dob + ": invalid calendar date!");
             return false;
@@ -152,6 +150,14 @@ public class GymManager {
         Member member = database.getMember(new Member(fname, lname, dob));
         if (member == null) {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
+            return false;
+        }
+        if(isGuest && !(member instanceof Family)){
+            System.out.println("Standard membership - guest check-in is not allowed.");
+            return false;
+        }
+        if(isGuest && !((Family) member).hasGuestPass()){
+            System.out.println(fname + " " + lname + " ran out of guest pass.");
             return false;
         }
         if (!schedule.hasClass(className, instructor, location)) {
@@ -163,23 +169,41 @@ public class GymManager {
             return false;
         }
         FitnessClass fitClass = schedule.getClass(className, instructor, location);
-        if (fitClass.contains(member)) {
-            System.out.println(fname + " " + lname + " has already checked in " + fitClass.getName() + ".");
+        if ((!isGuest && fitClass.contains(member))) {
+            System.out.println(fname + " " + lname + " already checked in.");
             return false;
         }
-        FitnessClass otherClass = schedule.sameTimeClass(member, fitClass);
+        if( !(member instanceof Family) && fitClass.getLocation() != member.getLocation()){
+            System.out.println(fname + " " + lname + " checking in " + fitClass.getLocation().toString().toUpperCase()
+                    + " - standard membership location restriction.");
+            return false;
+        }
+        if( isGuest && fitClass.getLocation() != member.getLocation()){
+            System.out.println(fname + " " + lname + " Guest checking in " + fitClass.getLocation().toString().toUpperCase()
+                    + " - guest location restriction.");
+            return false;
+        }
+        FitnessClass otherClass;
+        if(isGuest) { otherClass = schedule.sameTimeGuestClass(member, fitClass); }
+        else { otherClass = schedule.sameTimeClass(member, fitClass); }
         if (otherClass != null) {
-            System.out.println(fitClass.getName() + " time conflict -- " + fname + " " + lname
-                    + " has already checked in " + otherClass.getName() + ".");
+            System.out.println("Time conflict - " + fitClass.getName().toUpperCase() + " - " + fitClass.getInstructor().toUpperCase()
+                    + ", "  +  fitClass.getTime().getTime() + ", " + fitClass.getLocation().toString().toUpperCase());
             return false;
         }
         if(isGuest){
             fitClass.addGuest(member);
-            System.out.println(fname + " " + lname + " checked in " + fitClass.getName() + ".");
+            System.out.print(fname + " " + lname + " (guest) checked in " + fitClass.getName().toUpperCase() +
+                    fitClass.getInstructor().toUpperCase() + ", " + fitClass.getTime().getTime() + ", " + fitClass.getLocation().name());
+            System.out.print(fitClass.getClassMemberList());
+            System.out.print(fitClass.getClassGuestList());
         }
         else{
             fitClass.add(member);
-            System.out.println(fname + " " + lname + " checked in " + fitClass.getName() + ".");
+            System.out.print(fname + " " + lname + " checked in " + fitClass.getName().toUpperCase() + " - " +
+                    fitClass.getInstructor().toUpperCase() + ", " + fitClass.getTime().getTime() + ", " + fitClass.getLocation().name());
+            System.out.print(fitClass.getClassMemberList());
+            System.out.print(fitClass.getClassGuestList());
         }
         return true;
     }
@@ -209,27 +233,30 @@ public class GymManager {
 
         // check if DOB is valid
         if(!dob.isValid()) {
-            System.out.println(DOB_ERROR + parts[ARG_4] + ": invalid calendar date!"
+            System.out.println(DOB_ERROR + parts[ARG_6] + ": invalid calendar date!"
             );
+            return false;
+        }
+        if (!schedule.hasClass(className, instructor, location)) {
+            handleClassNotExist(className, instructor, location);
             return false;
         }
         // check if fitness class exists
         FitnessClass fitClass = schedule.getClass(className, instructor, location);
-        if(fitClass == null){
-            System.out.println(parts[ARG_1] + " class does not exist.");
-            return false;
-        }
         // check if user is registered
         Member member = new Member(fname, lname, dob);
+        if(!database.contains(member)){
+            System.out.println(fname + " " + lname + " " + parts[ARG_6] + " is not in the database.");
+            return false;
+        }
         if(!fitClass.contains(member)){
-            System.out.println(fname + " " + lname +
-                    " is not a participant in " + className + ".");
+            System.out.println(fname + " " + lname + " did not check in.");
             return false;
         }
         if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
             return false;
         }
-        System.out.println(fname + " " + lname + " dropped " + className + ".");
+        System.out.println(fname + " " + lname + " done with this class.");
         return true;
     }
 

@@ -21,6 +21,10 @@ public class Family extends Member {
         return true;
     }
 
+    public boolean hasGuestPass(){
+        return remainingGuestPasses > 0;
+    }
+
     @Override
     public String toString(){
         return super.toString() + remainingGuestPasses;

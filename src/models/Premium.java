@@ -14,9 +14,6 @@ public class Premium extends Family {
     }
 
     @Override
-    public boolean classLocationAllowed(Location classLoc){ return true; }
-
-    @Override
     protected Date calculateExpirationDate(){
         Calendar threeMonthsLater = Calendar.getInstance();
         threeMonthsLater.add(Calendar.MONTH, Constants.PREMIUM_EXPIRATION);

@@ -44,7 +44,7 @@ public class ClassSchedule {
      */
     public void printClasses(){
         for(int i = 0; i < classes.length; i++){
-            System.out.println(classes[i]);
+            System.out.print(classes[i]);
         }
     }
 
@@ -81,7 +81,7 @@ public class ClassSchedule {
     /**
      * Checks if the gym schedule includes a fitness class taught by
      * a given instructor.
-     * @param Name of the instructor
+     * @param instructor    Name of the instructor
      * @return true if schedule contains class taught by instructor, false otherwise
      */
     public boolean hasInstructor(String instructor){
@@ -113,8 +113,20 @@ public class ClassSchedule {
      */
     public FitnessClass sameTimeClass(Member member, FitnessClass fitClass){
         for(FitnessClass compClass : classes){
-            if (!compClass.getName().equals(fitClass.getName())){
+            if (!compClass.equals(fitClass)){
                 if (compClass.contains(member) &&
+                        fitClass.getTime() == compClass.getTime()) {
+                    return compClass;
+                }
+            }
+        }
+        return null;
+    }
+
+    public FitnessClass sameTimeGuestClass(Member member, FitnessClass fitClass){
+        for(FitnessClass compClass : classes){
+            if (!compClass.equals(fitClass)){
+                if (compClass.containsGuest(member) &&
                         fitClass.getTime() == compClass.getTime()) {
                     return compClass;
                 }
