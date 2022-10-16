@@ -250,11 +250,11 @@ public class GymManager {
         }
         member = database.getMember(new Member(fname, lname, dob));
         if(!isGuest && !fitClass.contains(member)){
-            System.out.println(fname + " " + lname + " done with the class.");
+            System.out.println(fname + " " + lname + " did not check in.");
             return false;
         }
         if(isGuest && !fitClass.containsGuest(member)){
-            System.out.println(fname + " " + lname + " Guest done with the class.");
+            System.out.println(fname + " " + lname + " Guest did not check in.");
             return false;
         }
         if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
@@ -265,7 +265,7 @@ public class GymManager {
             ((Family) member).incrementGuestPass();
         }
         else{
-            System.out.println(fname + " " + lname + " done with this class.");
+            System.out.println(fname + " " + lname + " done with the class.");
         }
         return true;
     }

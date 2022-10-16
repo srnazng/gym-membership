@@ -92,7 +92,12 @@ public class MemberDatabase {
             System.out.println("Member database is empty!");
             return;
         }
-        System.out.println("\n-list of members-");
+        if (includeFees){
+            System.out.println("\n-list of members with membership fees-");
+        }
+        else{
+            System.out.println("\n-list of members-");
+        }
         print(includeFees);
         System.out.println("-end of list-\n");
     }
@@ -101,7 +106,7 @@ public class MemberDatabase {
         for (int i = 0; i < size; i++){
             String memberInfo = mlist[i].toString();
             if(includeFees){
-                memberInfo = memberInfo + " " + decimalFormat.format(mlist[i].membershipFee());
+                memberInfo = memberInfo + ", Membership fee: $" + decimalFormat.format(mlist[i].membershipFee());
             }
             System.out.println(memberInfo);
         }
@@ -241,8 +246,8 @@ public class MemberDatabase {
         }
         sc.close();
 
-        System.out.println("-list of members loaded-");
+        System.out.println("\n-list of members loaded-");
         print(false);
-        System.out.println("-end of list-");
+        System.out.println("-end of list-\n");
     }
 }

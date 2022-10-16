@@ -31,8 +31,7 @@ public class ClassSchedule {
         if(numClasses > 0 && classes != null){
             System.out.println("\n-Fitness classes-");
             printClasses();
-            System.out.println();
-            System.out.println("-end of class list.");
+            System.out.println("-end of class list.\n");
         }
         else{
             System.out.println("Fitness class schedule is empty.");
@@ -168,6 +167,6 @@ public class ClassSchedule {
 
         System.out.println("\n-Fitness classes loaded-");
         printClasses();
-        System.out.println("-end of class list.");
+        System.out.println("-end of class list.\n");
     }
 }
