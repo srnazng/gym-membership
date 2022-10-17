@@ -47,19 +47,21 @@ public class ClassSchedule {
         }
     }
 
+    protected FitnessClass[] getClasses(){
+        return classes;
+    }
+
     /**
      * Get the fitness class in the schedule given the name of the class, instructor, and city
-     * @param className     Name of the fitness class
-     * @param instructor    Name of instructor teaching the fitness class
-     * @param city          City of the fitness class
+     * @param targetClass   Temporary Fitness Class object to find
      * @return the fitness class with name className
      */
-    public FitnessClass getClass(String className, String instructor, String city){
+    public FitnessClass getClass(FitnessClass targetClass){
         for(int i=0; i<numClasses; i++){
             FitnessClass fitClass = classes[i];
-            if(fitClass.getName().equalsIgnoreCase(className) &&
-                    fitClass.getInstructor().equalsIgnoreCase(instructor) &&
-                    city.equalsIgnoreCase(fitClass.getLocation().name())){
+            if(fitClass.getName().equalsIgnoreCase(targetClass.getName()) &&
+                    fitClass.getInstructor().equalsIgnoreCase(targetClass.getInstructor()) &&
+                    fitClass.getLocation().name().equalsIgnoreCase(targetClass.getLocation().name())){
                     return fitClass;
             }
         }
@@ -68,70 +70,73 @@ public class ClassSchedule {
 
     /**
      * Check if a fitness class in the schedule exists given the name of the class instructor, and city
-     * @param className Name of the fitness class
-     * @param instructor Name of the instructor teaching the fitness class
-     * @param city City of the fitness class
+     * @param fitClass  temporary FitnessClass object to find in schedule
      * @return True if there exists fitness class with that name, instructor, and city, false otherwise.
      */
-    public boolean hasClass(String className, String instructor, String city){
-        return getClass(className, instructor, city) != null;
+    public boolean hasClass(FitnessClass fitClass){
+        return getClass(fitClass) != null;
     }
 
     /**
-     * Checks if the gym schedule includes a fitness class taught by
-     * a given instructor.
-     * @param instructor    Name of the instructor
-     * @return true if schedule contains class taught by instructor, false otherwise
+     * Return error message for a Fitness Class that is known to not be in the schedule
+     * @param fitClass  Fitness class that user is trying to check into
+     * @return  Error message
      */
-    public boolean hasInstructor(String instructor){
-        for (int i = 0; i < numClasses; i++){
-            if (classes[i].getInstructor().equalsIgnoreCase(instructor)) return true;
+    public String handleClassNotExist(FitnessClass fitClass){
+        if (Location.toLocation(fitClass.getLocation().name()) == null){
+            return fitClass.getLocation() + " - invalid location.";
         }
-        return false;
-    }
-
-    /**
-     * Checks if the gym schedule includes a fitness class with a given name
-     * @param className Name of the class
-     * @return true if schedule contains class of className, false otherwise.
-     */
-    public boolean hasClassName(String className){
+        boolean foundClass = false;
+        // check has class name
         for (int i = 0; i < numClasses; i++){
-            if (classes[i].getName().equalsIgnoreCase(className)) return true;
-        }
-        return false;
-    }
-
-
-    /**
-     * Returns a fitness class that the member is registered for
-     * that occurs the same time as the given class
-     * @param member Member taking the class
-     * @param fitClass FitnessClass to compare to other fitness classes taken by member
-     * @return conflicting class that contains member, null if no class conflict
-     */
-    public FitnessClass sameTimeClass(Member member, FitnessClass fitClass){
-        for(FitnessClass compClass : classes){
-            if (!compClass.equals(fitClass)){
-                if (compClass.contains(member) &&
-                        fitClass.getTime() == compClass.getTime()) {
-                    return compClass;
-                }
+            if (classes[i].getName().equalsIgnoreCase(fitClass.getName())){
+                foundClass = true;
             }
         }
-        return null;
-    }
-
-    public FitnessClass sameTimeGuestClass(Member member, FitnessClass fitClass){
-        for(FitnessClass compClass : classes){
-            if (!compClass.equals(fitClass)){
-                if (compClass.containsGuest(member) &&
-                        fitClass.getTime() == compClass.getTime()) {
-                    return compClass;
-                }
+        if(!foundClass) { return fitClass.getName() + " - class does not exist."; }
+        boolean foundInstructor = false;
+        for (int i = 0; i < numClasses; i++){
+            if (classes[i].getInstructor().equalsIgnoreCase(fitClass.getInstructor())) {
+                foundInstructor = true;
             }
         }
-        return null;
+        if(!foundInstructor) { return fitClass.getInstructor() + " - instructor does not exist."; }
+        return fitClass.getName() + " by " + fitClass.getInstructor() + " does not exist at " + fitClass.getLocation().name();
+    }
+
+    /**
+     * Returns a list of fitness classes at the same time as fitClass
+     * @param fitClass FitnessClass to compare to other fitness classes
+     * @return array of conflicting classes taking place at the same time
+     */
+    public FitnessClass[] sameTimeClasses(FitnessClass fitClass){
+        int num = numClassesAtTime(fitClass.getTime());
+        FitnessClass[] classList = new FitnessClass[num - 1];
+
+        int ptr = 0;
+        for(int i=0; i<numClasses; i++){
+            FitnessClass compClass = classes[i];
+            if (compClass.getTime().equals(fitClass.getTime()) && !compClass.equals(fitClass)){
+                classList[ptr] = compClass;
+                ptr++;
+            }
+        }
+        return classList;
+    }
+
+    /**
+     * Get the number of fitness classes in schedule at specified time
+     * @param time
+     * @return  Number of FitnessClass objects
+     */
+    private int numClassesAtTime(Time time){
+        int num = 0;
+        for(FitnessClass compClass : classes){
+            if (time == compClass.getTime()) {
+                    num++;
+            }
+        }
+        return num;
     }
 
     /**

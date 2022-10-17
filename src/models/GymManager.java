@@ -20,7 +20,7 @@ public class GymManager {
     private static final int ARG_4 = 4;
     private static final int ARG_5 = 5;
     public static final int ARG_6 = 6;
-    enum Plan { STANDARD, FAMILY, PREMIUM };
+    enum Plan { STANDARD, FAMILY, PREMIUM }
 
     MemberDatabase database;
     ClassSchedule schedule;
@@ -33,7 +33,7 @@ public class GymManager {
     protected boolean run() throws FileNotFoundException {
         System.out.println("Gym Manager running...");
         Scanner sc = new Scanner(System.in);
-        String s = "";
+        String s;
 
         database = new MemberDatabase();
         schedule = new ClassSchedule();
@@ -151,15 +151,19 @@ public class GymManager {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
             return false;
         }
-        if (!schedule.hasClass(className, instructor, location)) {
-            handleClassNotExist(className, instructor, location);
+        if (Location.toLocation(location) == null){
+            System.out.println(location + " - invalid location.");
+            return false;
+        }
+        if (!schedule.hasClass(new FitnessClass(className, instructor, location))) {
+            System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
             return false;
         }
         if (member.getExpire().isPast()) {
             System.out.println(fname + " " + lname + " " + dob + " membership expired.");
             return false;
         }
-        FitnessClass fitClass = schedule.getClass(className, instructor, location);
+        FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
         if (!validTime(fitClass, member, isGuest)){
             System.out.println("Time conflict - " + fitClass.getName().toUpperCase() + " - " + fitClass.getInstructor().toUpperCase()
                     + ", "  +  fitClass.getTime().getTime() + ", " + fitClass.getLocation().toString().toUpperCase());
@@ -205,12 +209,16 @@ public class GymManager {
             );
             return false;
         }
-        if (!schedule.hasClass(className, instructor, location)) {
-            handleClassNotExist(className, instructor, location);
+        if (Location.toLocation(location) == null){
+            System.out.println(location + " - invalid location.");
+            return false;
+        }
+        if (!schedule.hasClass(new FitnessClass(className, instructor, location))) {
+            System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
             return false;
         }
         // check if fitness class exists
-        FitnessClass fitClass = schedule.getClass(className, instructor, location);
+        FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
         // check if user is registered
         Member member = new Member(fname, lname, dob);
         if(!database.contains(member)){
@@ -271,34 +279,23 @@ public class GymManager {
         return null;
     }
 
-    private void handleClassNotExist(String className, String instructor, String location){
-        if (!schedule.hasClassName(className)){
-            System.out.println(className + " - class does not exist.");
-        }
-        else if (Location.toLocation(location) == null){
-            System.out.println(location + " - invalid location.");
-        }
-        else if (!schedule.hasInstructor(instructor)){
-            System.out.println(instructor + " - instructor does not exist.");
-        }
-        else{
-            System.out.println(className + " by " + instructor + " does not exist at " + location);
-        }
-    }
+
 
     /**
      * Sees if there is a time conflict given a member and a fitness class
      * @param fitClass fitness class the member is trying to check into
      * @param member the member trying to check in
-     * @param isGuest whether or not the member is using a guest check in
+     * @param isGuest true is using a guest check in
      * @return true if no time conflict, false if there is a time conflict
      */
     private boolean validTime(FitnessClass fitClass, Member member, boolean isGuest){
-        FitnessClass otherClass;
-        if (isGuest) otherClass = schedule.sameTimeGuestClass(member, fitClass);
-        else otherClass = schedule.sameTimeClass(member, fitClass);
-        if (otherClass != null) {
-            return false;
+        if (!isGuest){
+            FitnessClass[] classes = schedule.sameTimeClasses(fitClass);
+            for(int i=0; i<classes.length; i++){
+                if(classes[i].contains(member)){
+                    return false;
+                }
+            }
         }
         return true;
     }

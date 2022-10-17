@@ -36,6 +36,13 @@ public class FitnessClass {
         checkedInGuests = new ArrayList<>();
     }
 
+    public FitnessClass(String name, String instructor, String city){
+        this.name = name;
+        this.location = Location.toLocation(city);
+        this.instructor = instructor;
+    }
+
+
     /**
      * Get name of fitness class
      * @return class name
