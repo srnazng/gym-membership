@@ -205,8 +205,7 @@ public class GymManager {
 
         // check if DOB is valid
         if(!dob.isValid()) {
-            System.out.println(DOB_ERROR + parts[ARG_6] + ": invalid calendar date!"
-            );
+            System.out.println(DOB_ERROR + parts[ARG_6] + ": invalid calendar date!");
             return false;
         }
         if (Location.toLocation(location) == null){
@@ -217,7 +216,6 @@ public class GymManager {
             System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
             return false;
         }
-        // check if fitness class exists
         FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
         // check if user is registered
         Member member = new Member(fname, lname, dob);

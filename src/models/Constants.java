@@ -25,9 +25,6 @@ public class Constants {
     public static final double FAMILY_FEE = 59.99 * 3;
     public static final double PREMIUM_FEE = 59.99 * 11;
     public static final double ONE_TIME_FEE = 29.99;
-    public static final int STANDARD_PAYMENTS_PER_YEAR = 4;
-    public static final int FAMILY_PAYMENTS_PER_YEAR = 4;
-    public static final int PREMIUM_PAYMENTS_PER_YEAR = 1;
     public static final int STANDARD_FAMILY_EXPIRATION = 3;
     public static final int PREMIUM_EXPIRATION = 12;
 }
