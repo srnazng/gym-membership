@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="one or less parameter in ClassSchedule">
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="Testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" afterDir="false" />
     </list>
     <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson" />
@@ -55,7 +55,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FitnessClassTest.testAddMember">
+  <component name="RunManager" selected="Application.RunProject1">
     <configuration name="RunProject1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="models.RunProject1" />
       <module name="CS213_Project1" />
@@ -134,8 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FitnessClassTest.testAddMember" />
         <item itemvalue="Application.RunProject1" />
+        <item itemvalue="JUnit.FitnessClassTest.testAddMember" />
         <item itemvalue="JUnit.PremiumTest.testPremiumFee" />
         <item itemvalue="JUnit.DateTest" />
         <item itemvalue="JUnit.DateTest.testDaysInLongMonth" />
@@ -242,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666028148488</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Testing">
+      <created>1666029040137</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666029040137</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,6 +273,7 @@
     <MESSAGE value="Did line stuff and fixed prices" />
     <MESSAGE value="stuffs" />
     <MESSAGE value="one or less parameter in ClassSchedule" />
-    <option name="LAST_COMMIT_MESSAGE" value="one or less parameter in ClassSchedule" />
+    <MESSAGE value="Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing" />
   </component>
 </project>

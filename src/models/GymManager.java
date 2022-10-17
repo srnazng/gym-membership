@@ -62,13 +62,13 @@ public class GymManager {
         else if(command.equals("A")) { handleAddMember(line, Plan.STANDARD); }
         else if(command.equals("AF")) { handleAddMember(line, Plan.FAMILY); }
         else if(command.equals("AP")) { handleAddMember(line, Plan.PREMIUM); }
-        else if(command.equals("PF")) { database.printDefault(true); }
+        else if(command.equals("PF")) { database.printWithFees(); }
         else if(command.equals("C")) { handleCheckIn(line, false); }
         else if(command.equals("CG")) { handleCheckIn(line, true); }
         else if(command.equals("D")) { handleDropClass(line, false); }
         else if(command.equals("DG")) { handleDropClass(line, true); }
         else if(command.equals("R")) { handleCancelMembership(line); }
-        else if(command.equals("P")) { database.printDefault(false); }
+        else if(command.equals("P")) { database.printDefault(); }
         else if(command.equals("PC")) {  database.printByLocation(); }
         else if(command.equals("PN")) { database.printByName(); }
         else if(command.equals("PD")) { database.printByExpirationDate(); }
