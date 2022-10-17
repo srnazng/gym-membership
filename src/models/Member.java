@@ -81,7 +81,21 @@ public class Member implements Comparable<Member>{
         return new Date(threeMonthsLater);
     }
 
+    /**
+     * Get the first name of the member
+     * @return first name as a string
+     */
+    public String getFname(){
+        return fname;
+    }
 
+    /**
+     * Get the last name of the member
+     * @return last name as a string
+     */
+    public String getLname(){
+        return lname;
+    }
     /**
      * Get the expiration date of the Member
      * @return expiration date as a Date object

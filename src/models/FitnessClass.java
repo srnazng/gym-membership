@@ -18,6 +18,8 @@ public class FitnessClass {
     private ArrayList<Member> checkedInMembers;
     private ArrayList<Member> checkedInGuests;
 
+    private boolean lastAddSuccess;
+
     /**
      * Create a new Fitness Class object with no checked in members
      * @param name          Name of class
@@ -51,6 +53,14 @@ public class FitnessClass {
      * @return Location object
      */
     public Location getLocation(){ return location; }
+
+    /**
+     * Get whether the last addition was successful
+     * @return whether the last addition was successful
+     */
+    public boolean getLastAddSuccess(){
+        return lastAddSuccess;
+    }
 
     /**
      * Get fitness class instructor
@@ -131,39 +141,53 @@ public class FitnessClass {
     }
 
     /**
-     * Check in a member to the fitness class and
-     * increment the number of participants checked into the class
-     * @param member Member to be checked into class
-     * @return true if member successfully added, false otherwise
+     * Add a member to the list of members in fitness class
+     * @param member to be added
+     * @return message to be outputted, depending on whether member was succesfully added
      */
-    public boolean add(Member member) {
-        if (checkedInMembers.contains(member)) {
-            return false;
+    public String add(Member member) {
+        String fname = member.getFname();
+        String lname = member.getLname();
+        lastAddSuccess = false;
+        if ((contains(member))) {
+            return fname + " " + lname + " already checked in.\n";
+        }
+        if( !(member instanceof Family) && !location.equals(member.getLocation())){
+            return fname + " " + lname + " checking in " + location.toString().toUpperCase()
+                    + " - standard membership location restriction.\n";
         }
         checkedInMembers.add(member);
-        return true;
+        lastAddSuccess = true;
+        return fname + " " + lname + " checked in " + name.toUpperCase() + " - " +
+                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name();
     }
 
     /**
      * Check in a guest to the fitness class and
      * increment the number of guests checked into the class
-     * @param member Member who is giving the guest pass
-     * @return true if member successfully added, false otherwise
+     * @param member that the guest belongs to
+     * @return message to be outputted, depending on whether guest was successfully added
      */
-    public boolean addGuest(Member member) {
+    public String addGuest(Member member) {
+        String fname = member.getFname();
+        String lname = member.getLname();
+        lastAddSuccess = false;
         if(!(member instanceof Family)){
-            return false;
+            return "Standard membership - guest check-in is not allowed.\n";
         }
-        if(member.getLocation() != location){
-            return false;
+        if(!((Family) member).hasGuestPass()){
+            return fname + " " + lname + " ran out of guest pass.\n";
         }
-        if (!((Family) member).hasGuestPass()){
-            return false;
+        if(!location.equals(member.getLocation())){
+            return fname + " " + lname + " Guest checking in " + location.toString().toUpperCase()
+                    + " - guest location restriction.\n";
         }
+
         ((Family) member).useGuestPass();
         checkedInGuests.add(member);
-        getClassMemberList();
-        return true;
+        lastAddSuccess = true;
+        return fname + " " + lname + " (guest) checked in " + name.toUpperCase() + " - " +
+                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name();
     }
 
     /**

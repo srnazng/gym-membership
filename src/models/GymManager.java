@@ -151,14 +151,6 @@ public class GymManager {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
             return false;
         }
-        if(isGuest && !(member instanceof Family)){
-            System.out.println("Standard membership - guest check-in is not allowed.");
-            return false;
-        }
-        if(isGuest && !((Family) member).hasGuestPass()){
-            System.out.println(fname + " " + lname + " ran out of guest pass.");
-            return false;
-        }
         if (!schedule.hasClass(className, instructor, location)) {
             handleClassNotExist(className, instructor, location);
             return false;
@@ -168,43 +160,20 @@ public class GymManager {
             return false;
         }
         FitnessClass fitClass = schedule.getClass(className, instructor, location);
-        if ((!isGuest && fitClass.contains(member))) {
-            System.out.println(fname + " " + lname + " already checked in.");
-            return false;
-        }
-        if( !(member instanceof Family) && fitClass.getLocation() != member.getLocation()){
-            System.out.println(fname + " " + lname + " checking in " + fitClass.getLocation().toString().toUpperCase()
-                    + " - standard membership location restriction.");
-            return false;
-        }
-        if( isGuest && fitClass.getLocation() != member.getLocation()){
-            System.out.println(fname + " " + lname + " Guest checking in " + fitClass.getLocation().toString().toUpperCase()
-                    + " - guest location restriction.");
-            return false;
-        }
-        FitnessClass otherClass;
-        if(isGuest) { otherClass = schedule.sameTimeGuestClass(member, fitClass); }
-        else { otherClass = schedule.sameTimeClass(member, fitClass); }
-        if (otherClass != null) {
+        if (!validTime(fitClass, member, isGuest)){
             System.out.println("Time conflict - " + fitClass.getName().toUpperCase() + " - " + fitClass.getInstructor().toUpperCase()
                     + ", "  +  fitClass.getTime().getTime() + ", " + fitClass.getLocation().toString().toUpperCase());
             return false;
         }
-        if(isGuest){
-            fitClass.addGuest(member);
-            System.out.print(fname + " " + lname + " (guest) checked in " + fitClass.getName().toUpperCase() + " - " +
-                    fitClass.getInstructor().toUpperCase() + ", " + fitClass.getTime().getTime() + ", " + fitClass.getLocation().name());
+        String message;
+        if (isGuest) message = fitClass.addGuest(member);
+        else message = fitClass.add(member);
+        System.out.print(message);
+        if (fitClass.getLastAddSuccess()){
             System.out.print(fitClass.getClassMemberList());
-            System.out.print(fitClass.getClassGuestList());
+            System.out.println(fitClass.getClassGuestList());
         }
-        else{
-            fitClass.add(member);
-            System.out.print(fname + " " + lname + " checked in " + fitClass.getName().toUpperCase() + " - " +
-                    fitClass.getInstructor().toUpperCase() + ", " + fitClass.getTime().getTime() + ", " + fitClass.getLocation().name());
-            System.out.print(fitClass.getClassMemberList());
-            System.out.print(fitClass.getClassGuestList());
-        }
-        return true;
+        return fitClass.getLastAddSuccess();
     }
 
 
@@ -315,6 +284,22 @@ public class GymManager {
         else{
             System.out.println(className + " by " + instructor + " does not exist at " + location);
         }
+    }
 
+    /**
+     * Sees if there is a time conflict given a member and a fitness class
+     * @param fitClass fitness class the member is trying to check into
+     * @param member the member trying to check in
+     * @param isGuest whether or not the member is using a guest check in
+     * @return true if no time conflict, false if there is a time conflict
+     */
+    private boolean validTime(FitnessClass fitClass, Member member, boolean isGuest){
+        FitnessClass otherClass;
+        if (isGuest) otherClass = schedule.sameTimeGuestClass(member, fitClass);
+        else otherClass = schedule.sameTimeClass(member, fitClass);
+        if (otherClass != null) {
+            return false;
+        }
+        return true;
     }
 }
