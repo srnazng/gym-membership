@@ -3,10 +3,12 @@ package tests;
 import models.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class DateTest {
-    @org.junit.jupiter.api.Test
+    @Test
     public void testMonthRange(){
+        //Months must be between 1 and 12
         Date date1 = new Date("-1/1/2022");
         assertFalse(date1.isValid());
 
@@ -19,8 +21,9 @@ class DateTest {
         Date date4 = new Date("13/1/2022");
         assertFalse(date4.isValid());
     }
-    @org.junit.jupiter.api.Test
+    @Test
     public void testDayRangeInLongMonth(){
+        //Dates in a long month must be between 1 and 31
         Date date1 = new Date("1/-1/2003");
         assertFalse(date1.isValid());
 
@@ -34,8 +37,9 @@ class DateTest {
         assertFalse(date4.isValid());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testDayRangeInShortMonth(){
+        //Dates in a short month must be between 1 and 30
         Date date1 = new Date("4/-1/2022");
         assertFalse(date1.isValid());
 
@@ -50,6 +54,7 @@ class DateTest {
     }
 
     public void testYearRange(){
+        //Year must be a positive number
         Date date1 = new Date("4/1/-1");
         assertFalse(date1.isValid());
 
@@ -61,8 +66,9 @@ class DateTest {
     }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testYearNotMultipleOfFour(){
+        //28 days in february when the year is not a multiple of 4
         Date date1 = new Date("2/28/2009");
         assertTrue(date1.isValid());
 
@@ -70,8 +76,10 @@ class DateTest {
         assertFalse(date2.isValid());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testYearMultipleOfFourNotHundred(){
+        //29 days in the February when the year is a multiple of 4
+        //and not a multiple of one hundred
         Date date1 = new Date("2/29/2008");
         assertTrue(date1.isValid());
 
@@ -79,8 +87,10 @@ class DateTest {
         assertFalse(date2.isValid());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testYearMultipleofHundredNotFourHundred(){
+        //28 days in February is multiple of one hundred and
+        //Not multiple of four hundred
         Date date1 = new Date("2/28/1900");
         assertTrue(date1.isValid());
 
@@ -88,8 +98,9 @@ class DateTest {
         assertFalse(date2.isValid());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testYearMultipleOfFourHundred(){
+        //29 days in February when year is multiple of four hundred
         Date date1 = new Date("2/29/2008");
         assertTrue(date1.isValid());
 

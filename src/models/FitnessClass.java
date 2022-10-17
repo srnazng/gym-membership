@@ -25,7 +25,7 @@ public class FitnessClass {
      * @param time          Time of the class (morning or afternoon)
      * @param location      Location of class
      */
-    FitnessClass(String name, String instructor, Time time, Location location){
+    public FitnessClass(String name, String instructor, Time time, Location location){
         this.name = name;
         this.location = location;
         this.instructor = instructor;
@@ -151,10 +151,13 @@ public class FitnessClass {
      * @return true if member successfully added, false otherwise
      */
     public boolean addGuest(Member member) {
-        if(!(member instanceof Family) && !(member instanceof Premium)){
+        if(!(member instanceof Family)){
             return false;
         }
         if(member.getLocation() != location){
+            return false;
+        }
+        if (!((Family) member).hasGuestPass()){
             return false;
         }
         ((Family) member).useGuestPass();
