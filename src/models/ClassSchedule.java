@@ -47,10 +47,6 @@ public class ClassSchedule {
         }
     }
 
-    protected FitnessClass[] getClasses(){
-        return classes;
-    }
-
     /**
      * Get the fitness class in the schedule given the name of the class, instructor, and city
      * @param targetClass   Temporary Fitness Class object to find
@@ -126,7 +122,7 @@ public class ClassSchedule {
 
     /**
      * Get the number of fitness classes in schedule at specified time
-     * @param time
+     * @param time  time of fitness classes
      * @return  Number of FitnessClass objects
      */
     private int numClassesAtTime(Time time){
@@ -142,36 +138,40 @@ public class ClassSchedule {
     /**
      * Reads the predefined file classSchedule.txt
      * And loads it into the class schedule.
-     * @throws FileNotFoundException
      */
-    public void loadSchedule() throws FileNotFoundException {
-        File file = new File("src/input/classSchedule.txt");
-        Scanner sc = new Scanner(file);
+    public void loadSchedule(){
+        try{
+            File file  = new File("src/input/classSchedule.txt");
+            Scanner sc = new Scanner(file);
 
-        while (sc.hasNextLine()){
-            String s = sc.nextLine();
-            if(!s.isBlank()) {
-                numClasses++;
+            while (sc.hasNextLine()){
+                String s = sc.nextLine();
+                if(!s.isBlank()) {
+                    numClasses++;
+                }
             }
-        }
-        sc.close();
-        sc = new Scanner(file);
-        classes = new FitnessClass[numClasses];
+            sc.close();
+            sc = new Scanner(file);
+            classes = new FitnessClass[numClasses];
 
-        for (int i = 0; i < numClasses && sc.hasNextLine(); i++){
-            String classString = sc.nextLine();
-            String[] classParts = classString.split("\\s+");
-            if(classParts.length == NUM_ARGS){
-                FitnessClass fitClass = new FitnessClass(classParts[NAME_INDEX],
-                        classParts[INSTRUCTOR_INDEX], Time.toTime(classParts[TIME_INDEX]),
-                        Location.toLocation(classParts[CITY_INDEX]));
-                classes[i] = fitClass;
+            for (int i = 0; i < numClasses && sc.hasNextLine(); i++){
+                String classString = sc.nextLine();
+                String[] classParts = classString.split("\\s+");
+                if(classParts.length == NUM_ARGS){
+                    FitnessClass fitClass = new FitnessClass(classParts[NAME_INDEX],
+                            classParts[INSTRUCTOR_INDEX], Time.toTime(classParts[TIME_INDEX]),
+                            Location.toLocation(classParts[CITY_INDEX]));
+                    classes[i] = fitClass;
+                }
             }
-        }
-        sc.close();
+            sc.close();
 
-        System.out.println("\n-Fitness classes loaded-");
-        printClasses();
-        System.out.println("-end of class list.\n");
+            System.out.println("\n-Fitness classes loaded-");
+            printClasses();
+            System.out.println("-end of class list.\n");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -70,11 +70,16 @@ public enum Location {
                 ", " + county.toUpperCase();
     }
 
-    public boolean equals(Location l){
-        if(l == null){
+    /**
+     * Check if two locations are the same
+     * @param loc Location to be compared to
+     * @return true if same city name, false otherwise
+     */
+    public boolean equals(Location loc){
+        if(loc == null){
             return false;
         }
-        if(this.name().equals(l.name())){
+        if(this.name().equals(loc.name())){
             return true;
         }
         return false;

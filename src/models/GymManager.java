@@ -1,6 +1,5 @@
 package models;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -20,17 +19,24 @@ public class GymManager {
     private static final int ARG_4 = 4;
     private static final int ARG_5 = 5;
     public static final int ARG_6 = 6;
-    enum Plan { STANDARD, FAMILY, PREMIUM }
 
-    MemberDatabase database;
-    ClassSchedule schedule;
+    private static MemberDatabase database;
+    private static ClassSchedule schedule;
+
+    /**
+     * Return the class schedule
+     * @return schedule field
+     */
+    public static ClassSchedule getSchedule() {
+        return schedule;
+    }
 
     /**
      * Run program
      * Reads lines from terminal and performs commands based off inputs
      * @return true
      */
-    protected boolean run() throws FileNotFoundException {
+    protected boolean run() {
         System.out.println("Gym Manager running...");
         Scanner sc = new Scanner(System.in);
         String s;
@@ -46,7 +52,6 @@ public class GymManager {
             }
             runCommand(s.split(" ")[0], s);
         }
-
         return true;
     }
 
@@ -55,13 +60,13 @@ public class GymManager {
      * @param command   command indicating type of task
      * @param line      entire instruction
      */
-    private void runCommand(String command, String line) throws FileNotFoundException {
+    private void runCommand(String command, String line) {
         if(command.trim().length() == 0) { return; }
         if(command.equals("LS")) { schedule.loadSchedule(); }
         else if(command.equals("LM")) { database.loadMembers(); }
-        else if(command.equals("A")) { handleAddMember(line, Plan.STANDARD); }
-        else if(command.equals("AF")) { handleAddMember(line, Plan.FAMILY); }
-        else if(command.equals("AP")) { handleAddMember(line, Plan.PREMIUM); }
+        else if(command.equals("A")) { handleAddMember(line, Plans.STANDARD); }
+        else if(command.equals("AF")) { handleAddMember(line, Plans.FAMILY); }
+        else if(command.equals("AP")) { handleAddMember(line, Plans.PREMIUM); }
         else if(command.equals("PF")) { database.printWithFees(); }
         else if(command.equals("C")) { handleCheckIn(line, false); }
         else if(command.equals("CG")) { handleCheckIn(line, true); }
@@ -80,10 +85,11 @@ public class GymManager {
      * Handles inputs with command type A, AF, AP
      * Parses command for member information
      * Checks if member is valid and if so, adds member to member database
-     * @param command   Entire line of instruction containing member information
+     * @param command           Entire line of instruction containing member information
+     * @param membershipType    Standard, Family, or Premium plan of member
      * @return true if member successfully added, false otherwise
      */
-    private boolean handleAddMember(String command, Plan membershipType){
+    private boolean handleAddMember(String command, Plans membershipType){
         String[] parts = command.split(" ");
         if(parts.length < A_COMMAND_LENGTH) return false;
 
@@ -99,16 +105,9 @@ public class GymManager {
             return false;
         }
         Member member;
-        if(membershipType == Plan.PREMIUM){
-            member = new Premium(parts[ARG_1], parts[ARG_2], dob, location);
-        }
-        else if(membershipType == Plan.FAMILY){
-            member = new Family(parts[ARG_1], parts[ARG_2], dob, location);
-        }
-        else{
-            member = new Member(parts[ARG_1], parts[ARG_2], dob, location);
-        }
-
+        if(membershipType == Plans.PREMIUM){ member = new Premium(parts[ARG_1], parts[ARG_2], dob, location); }
+        else if(membershipType == Plans.FAMILY){ member = new Family(parts[ARG_1], parts[ARG_2], dob, location); }
+        else{ member = new Member(parts[ARG_1], parts[ARG_2], dob, location); }
         if(database.contains(member)) {
             System.out.println(parts[ARG_1] + " " + parts[ARG_2] + " is already in the database.");
             return false;
@@ -131,11 +130,11 @@ public class GymManager {
      * 6. The member is not already checked in
      * Displays appropriate error messages if unable to check in member to class
      * @param command Entire line of instruction containing member and class information
-     * @return true if member checked in for class successfully, false otherwise
+     * @param isGuest true if checking in guest, false otherwise
      */
-    private boolean handleCheckIn(String command, boolean isGuest) {
+    private void handleCheckIn(String command, boolean isGuest) {
         String[] parts = command.split(" ");
-        if (parts.length != C_COMMAND_LENGTH) return false;
+        if (parts.length != C_COMMAND_LENGTH) return;
         Date dob = new Date(parts[ARG_6]);
         String fname = parts[ARG_4];
         String lname = parts[ARG_5];
@@ -144,40 +143,34 @@ public class GymManager {
         String location = parts[ARG_3];
         if(!dob.isValid()) {
             System.out.println(DOB_ERROR + dob + ": invalid calendar date!");
-            return false;
+            return;
         }
         Member member = database.getMember(new Member(fname, lname, dob));
         if (member == null) {
             System.out.println(fname + " " + lname + " " + dob + " is not in the database.");
-            return false;
+            return;
         }
         if (Location.toLocation(location) == null){
             System.out.println(location + " - invalid location.");
-            return false;
+            return;
         }
         if (!schedule.hasClass(new FitnessClass(className, instructor, location))) {
             System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
-            return false;
+            return;
         }
         if (member.getExpire().isPast()) {
             System.out.println(fname + " " + lname + " " + dob + " membership expired.");
-            return false;
+            return;
         }
         FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
-        if (!validTime(fitClass, member, isGuest)){
-            System.out.println("Time conflict - " + fitClass.getName().toUpperCase() + " - " + fitClass.getInstructor().toUpperCase()
-                    + ", "  +  fitClass.getTime().getTime() + ", " + fitClass.getLocation().toString().toUpperCase());
-            return false;
-        }
         String message;
         if (isGuest) message = fitClass.addGuest(member);
         else message = fitClass.add(member);
         System.out.print(message);
-        if (fitClass.getLastAddSuccess()){
+        if (fitClass.getLastAddSuccessful()){
             System.out.print(fitClass.getClassMemberList());
             System.out.println(fitClass.getClassGuestList());
         }
-        return fitClass.getLastAddSuccess();
     }
 
 
@@ -190,11 +183,11 @@ public class GymManager {
      * 3. The specified class exists
      * Displays appropriate error messages if unable to drop member from class
      * @param command Entire line of instruction containing member and class information
-     * @return true if member dropped from class successfully, false otherwise
+     * @param isGuest true of dropping class for guest, false otherwise
      */
-    private boolean handleDropClass(String command, boolean isGuest){
+    private void handleDropClass(String command, boolean isGuest){
         String[] parts = command.split(" ");
-        if(parts.length < D_COMMAND_LENGTH) return false;
+        if(parts.length < D_COMMAND_LENGTH) return;
 
         Date dob = new Date(parts[ARG_6]);
         String fname = parts[ARG_4];
@@ -206,43 +199,27 @@ public class GymManager {
         // check if DOB is valid
         if(!dob.isValid()) {
             System.out.println(DOB_ERROR + parts[ARG_6] + ": invalid calendar date!");
-            return false;
+            return;
         }
         if (Location.toLocation(location) == null){
             System.out.println(location + " - invalid location.");
-            return false;
+            return;
         }
         if (!schedule.hasClass(new FitnessClass(className, instructor, location))) {
             System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
-            return false;
+            return;
         }
         FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
         // check if user is registered
         Member member = new Member(fname, lname, dob);
         if(!database.contains(member)){
             System.out.println(fname + " " + lname + " " + parts[ARG_6] + " is not in the database.");
-            return false;
+            return;
         }
         member = database.getMember(new Member(fname, lname, dob));
-        if(!isGuest && !fitClass.contains(member)){
-            System.out.println(fname + " " + lname + " did not check in.");
-            return false;
-        }
-        if(isGuest && !fitClass.containsGuest(member)){
-            System.out.println(fname + " " + lname + " Guest did not check in.");
-            return false;
-        }
-        if((isGuest && !fitClass.dropGuestClass(member)) || !isGuest && !fitClass.dropClass(member)){
-            return false;
-        }
-        if(isGuest){
-            System.out.println(fname + " " + lname + " Guest done with the class.");
-            ((Family) member).incrementGuestPass();
-        }
-        else{
-            System.out.println(fname + " " + lname + " done with the class.");
-        }
-        return true;
+        FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
+        if(isGuest) { System.out.println(fitClass.dropGuestClass(member)); }
+        else{ System.out.println(fitClass.dropClass(member)); }
     }
 
     /**
@@ -264,6 +241,11 @@ public class GymManager {
         return true;
     }
 
+    /**
+     * Return error message if invalid birthday
+     * @param dob   Date object of birthday
+     * @return Error message if dob invalid, null otherwise
+     */
     private String checkBirthdayErrors(Date dob) {
         if (!dob.isValid()) {
             return DOB_ERROR + dob + ": invalid calendar date!";
@@ -278,23 +260,12 @@ public class GymManager {
     }
 
 
-
     /**
-     * Sees if there is a time conflict given a member and a fitness class
-     * @param fitClass fitness class the member is trying to check into
-     * @param member the member trying to check in
-     * @param isGuest true is using a guest check in
-     * @return true if no time conflict, false if there is a time conflict
+     * Create test schedule
+     * @return ClassSchedule object for testing
      */
-    private boolean validTime(FitnessClass fitClass, Member member, boolean isGuest){
-        if (!isGuest){
-            FitnessClass[] classes = schedule.sameTimeClasses(fitClass);
-            for(int i=0; i<classes.length; i++){
-                if(classes[i].contains(member)){
-                    return false;
-                }
-            }
-        }
-        return true;
+    public static ClassSchedule createTestSchedule() {
+        schedule = new ClassSchedule();
+        return schedule;
     }
 }

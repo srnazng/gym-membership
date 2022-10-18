@@ -17,8 +17,7 @@ public class FitnessClass {
     private Location location;
     private ArrayList<Member> checkedInMembers;
     private ArrayList<Member> checkedInGuests;
-
-    private boolean lastAddSuccess;
+    private boolean lastAddSuccessful;
 
     /**
      * Create a new Fitness Class object with no checked in members
@@ -36,12 +35,25 @@ public class FitnessClass {
         checkedInGuests = new ArrayList<>();
     }
 
+    /**
+     * Create a Fitness Class object with limited information
+     * @param name          Name of class
+     * @param instructor    Name of the class instructor
+     * @param city      Location of class
+     */
     public FitnessClass(String name, String instructor, String city){
         this.name = name;
         this.location = Location.toLocation(city);
         this.instructor = instructor;
     }
 
+    /**
+     * Get whether or not the last add attempt was successful
+     * @return true if the last add attempt was successful, false otherwise
+     */
+    public boolean getLastAddSuccessful(){
+        return lastAddSuccessful;
+    }
 
     /**
      * Get name of fitness class
@@ -62,19 +74,16 @@ public class FitnessClass {
     public Location getLocation(){ return location; }
 
     /**
-     * Get whether the last addition was successful
-     * @return whether the last addition was successful
-     */
-    public boolean getLastAddSuccess(){
-        return lastAddSuccess;
-    }
-
-    /**
      * Get fitness class instructor
      * @return Name of fitness class instructor
      */
     public String getInstructor(){ return instructor; }
 
+    /**
+     * Compare two FitnessClass objects
+     * @param obj   FitnessClass object to be compared
+     * @return  true if same class name, instructor, and location; false otherwise
+     */
     @Override
     public boolean equals(Object obj){
         FitnessClass otherClass = (FitnessClass) obj;
@@ -129,6 +138,10 @@ public class FitnessClass {
         return toReturn;
     }
 
+    /**
+     * Gets a list of Members (as Strings) who have checked in guests to the fitness class
+     * @return  List of members with guests in the class, empty string if no guests
+     */
     public String getClassGuestList(){
         String toReturn = "";
         if(checkedInGuests.size() > 0){
@@ -155,7 +168,7 @@ public class FitnessClass {
     public String add(Member member) {
         String fname = member.getFname();
         String lname = member.getLname();
-        lastAddSuccess = false;
+        lastAddSuccessful = false;
         if ((contains(member))) {
             return fname + " " + lname + " already checked in.\n";
         }
@@ -163,10 +176,30 @@ public class FitnessClass {
             return fname + " " + lname + " checking in " + location.toString().toUpperCase()
                     + " - standard membership location restriction.\n";
         }
+        if (!validTime(member)){
+           return "Time conflict - " + name.toUpperCase() + " - " + instructor.toUpperCase()
+                    + ", "  +  time.getTime() + ", " + location.toString().toUpperCase() + "\n";
+        }
+        lastAddSuccessful = true;
         checkedInMembers.add(member);
-        lastAddSuccess = true;
         return fname + " " + lname + " checked in " + name.toUpperCase() + " - " +
-                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name();
+                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name() + "\n";
+    }
+
+    /**
+     * Sees if there is a time conflict given a member and a fitness class
+     * @param member the member trying to check in
+     * @return true if no time conflict, false if there is a time conflict
+     */
+    private boolean validTime(Member member){
+        ClassSchedule schedule = GymManager.getSchedule();
+        FitnessClass[] classes = schedule.sameTimeClasses(this);
+        for(int i=0; i<classes.length; i++){
+            if(classes[i].contains(member)){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -178,7 +211,7 @@ public class FitnessClass {
     public String addGuest(Member member) {
         String fname = member.getFname();
         String lname = member.getLname();
-        lastAddSuccess = false;
+        lastAddSuccessful = false;
         if(!(member instanceof Family)){
             return "Standard membership - guest check-in is not allowed.\n";
         }
@@ -192,9 +225,8 @@ public class FitnessClass {
 
         ((Family) member).useGuestPass();
         checkedInGuests.add(member);
-        lastAddSuccess = true;
         return fname + " " + lname + " (guest) checked in " + name.toUpperCase() + " - " +
-                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name();
+                instructor.toUpperCase() + ", " + time.getTime() + ", " + location.name() + "\n";
     }
 
     /**
@@ -216,10 +248,20 @@ public class FitnessClass {
         return checkedInGuests.remove(member);
     }
 
+    /**
+     * Check whether a member has already been checked into the fitness class
+     * @param member    Member to find in class
+     * @return  true if member is checked in to class, false otherwise
+     */
     public boolean contains(Member member){
         return checkedInMembers.contains(member);
     }
 
+    /**
+     * Check whether a member has a guest already been checked into the fitness class
+     * @param member    Member to find in class
+     * @return  true if member has guest checked in to class, false otherwise
+     */
     public boolean containsGuest(Member member){
         return checkedInGuests.contains(member);
     }

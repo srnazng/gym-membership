@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,13 +9,11 @@ import models.*;
 import java.io.FileNotFoundException;
 
 class FitnessClassTest {
-    private static MemberDatabase database;
-    private static ClassSchedule schedule;
-    @BeforeAll()
-    static void prepareTest() throws FileNotFoundException {
-        database = new MemberDatabase();
-        database.loadMembers();
-        schedule = new ClassSchedule();
+    private FitnessClass testClass;
+    private ClassSchedule schedule;
+    @BeforeEach
+    public void init() throws FileNotFoundException {
+        schedule = GymManager.createTestSchedule();
         schedule.loadSchedule();
     }
 
@@ -34,8 +32,47 @@ class FitnessClassTest {
     }
 
     @Test
-    void addGuest() {
-        //FitnessClass testClass =
+    void testAddStandardGuest() {
+        //A member under the Standard plan cannot check in guests
+        Member member1 = new Member("Standard", "A", new Date("12/12/2012"), Location.toLocation("Bridgewater"));
+        assertEquals(testClass.addGuest(member1), "Standard membership - guest check-in is not allowed.\n");
+    }
+
+    @Test
+    void testAddFamilyGuest(){
+        Member member1 = new Family("Family", "A", new Date("12/11/2012"), Location.toLocation("Bridgewater"));
+
+        //A member under the Family plan only has 1 guest pass
+        testClass.addGuest(member1);
+        assertEquals(testClass.addGuest(member1), "Family A ran out of guest pass.\n");
+
+        //Once the previous guest is done with the class, the guest pass can again be used
+        testClass.dropGuestClass(member1);
+        assertEquals(testClass.addGuest(member1), "Family A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+    }
+
+    @Test
+    void testAddPremiumGuest(){
+        Member member1 = new Premium("Premium", "A", new Date("12/12/1986"), Location.toLocation("Bridgewater"));
+
+        //A member under the Family plan has 3 guest passes
+        testClass.addGuest(member1);
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+        assertEquals(testClass.addGuest(member1), "Premium A ran out of guest pass.\n");
+
+        //Once the previous guest is done with the class, the guest pass can again be used
+        testClass.dropGuestClass(member1);
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+    }
+
+    @Test
+    void testAddGuestWrongLocation() {
+        //A guest can only be checked in at the gym location where the member is registered
+        Member member1 = new Family("Family", "A", new Date("12/11/2012"), Location.toLocation("Piscataway"));
+        Member member2 = new Premium("Premium", "A", new Date("12/12/1986"), Location.toLocation("Piscataway"));
+        assertEquals(testClass.addGuest(member1), "Family A Guest checking in BRIDGEWATER, 08807, SOMERSET - guest location restriction.\n");
+        assertEquals(testClass.addGuest(member2), "Premium A Guest checking in BRIDGEWATER, 08807, SOMERSET - guest location restriction.\n");
     }
 
     @Test

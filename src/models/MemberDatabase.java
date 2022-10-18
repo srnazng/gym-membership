@@ -1,7 +1,6 @@
 package models;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static models.Constants.NOT_FOUND;
@@ -99,7 +98,7 @@ public class MemberDatabase {
 
     /**
      * If there are no members, a message indicating database is empty is printed.
-     * Otherwise, a list of members is printed without sorting.
+     * Otherwise, a list of members and their fees is printed without sorting.
      */
     public void printWithFees() {
         if(size < 1){
@@ -112,6 +111,10 @@ public class MemberDatabase {
         System.out.println("-end of list-\n");
     }
 
+    /**
+     * Print the members in the database (without headers)
+     * @param includeFees   whether or not to include the fees
+     */
     private void print(boolean includeFees){
         for (int i = 0; i < size; i++){
             String memberInfo = mlist[i].toString();
@@ -228,11 +231,11 @@ public class MemberDatabase {
      * Reads members line by line from the text file
      * memberList.txt and loads the members into
      * the member database.
-     * @throws FileNotFoundException
      */
-    public void loadMembers() throws FileNotFoundException {
-        File file = new File("src/input/memberList.txt");
-        Scanner sc = new Scanner(file);
+    public void loadMembers() {
+        try{
+            File file = new File("src/input/memberList.txt");
+            Scanner sc = new Scanner(file);
 
         while (sc.hasNextLine()){
             String s = sc.nextLine();

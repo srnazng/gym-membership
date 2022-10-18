@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PremiumTest {
     private static final double EXPECTED_PREMIUM_FEE = 659.89;
-
     @Test
     void testPremiumFee() {
         //Premium fee should be 659.89, as seen in the the expected output
