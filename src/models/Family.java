@@ -1,5 +1,13 @@
 package models;
 
+/**
+ * The family class represents a member who has a family plan.
+ * Each family object contains member information including first name, last name, date of
+ * birth, membership expiration date, location, and number of remaining guest passes.
+ * A member is uniquely identified by first name, last name, and date of birth.
+ * The family member is instantiated with 1 guest pass.
+ * @author Jackson Lee, Serena Zeng
+ */
 public class Family extends Member {
     protected int remainingGuestPasses;
 

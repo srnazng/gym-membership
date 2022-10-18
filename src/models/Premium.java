@@ -2,6 +2,13 @@ package models;
 
 import java.util.Calendar;
 
+/**
+ * The premium class represents a member with a premium membership
+ * Each premium object contains fields including the first name,
+ * last name, date of birth, and location of the member. Each premium
+ * object is instantiated with 3 guest passes.
+ * @author Jackson Lee, Serena Zeng
+ */
 public class Premium extends Family {
     /**
      * Create a new instance of a Premium plan member
@@ -15,6 +22,10 @@ public class Premium extends Family {
         this.remainingGuestPasses = 3;
     }
 
+    /**
+     * Returns the next membership fee due for a premium member
+     * @return  dollar amount of fee
+     */
     @Override
     public double membershipFee(){
         return Constants.PREMIUM_FEE;

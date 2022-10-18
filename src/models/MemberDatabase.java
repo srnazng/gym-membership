@@ -237,30 +237,34 @@ public class MemberDatabase {
             File file = new File("src/input/memberList.txt");
             Scanner sc = new Scanner(file);
 
-        while (sc.hasNextLine()){
-            String s = sc.nextLine();
-            if(!s.isBlank()) {
-                size++;
+            while (sc.hasNextLine()){
+                String s = sc.nextLine();
+                if(!s.isBlank()) {
+                    size++;
+                }
             }
-        }
-        sc.close();
-        sc = new Scanner(file);
-        mlist = new Member[size + GROWTH_FACTOR];
+            sc.close();
+            sc = new Scanner(file);
+            mlist = new Member[size + GROWTH_FACTOR];
 
-        for (int i = 0; i < size; i++){
-            String memberString = sc.nextLine();
-            String[] memberParts = memberString.split("\\s+");
-            if(memberParts.length == NUM_ARGS){
-                Member member = new Member(memberParts[FNAME_INDEX], memberParts[LNAME_INDEX],
-                        new Date(memberParts[DOB_INDEX]), new Date(memberParts[EXP_INDEX]),
-                        Location.toLocation(memberParts[CITY_INDEX]));
-                mlist[i] = member;
+            for (int i = 0; i < size; i++){
+                String memberString = sc.nextLine();
+                String[] memberParts = memberString.split("\\s+");
+                if(memberParts.length == NUM_ARGS){
+                    Member member = new Member(memberParts[FNAME_INDEX], memberParts[LNAME_INDEX],
+                            new Date(memberParts[DOB_INDEX]), new Date(memberParts[EXP_INDEX]),
+                            Location.toLocation(memberParts[CITY_INDEX]));
+                    mlist[i] = member;
+                }
             }
-        }
-        sc.close();
+            sc.close();
 
-        System.out.println("\n-list of members loaded-");
-        print(false);
-        System.out.println("-end of list-\n");
+            System.out.println("\n-list of members loaded-");
+            print(false);
+            System.out.println("-end of list-\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

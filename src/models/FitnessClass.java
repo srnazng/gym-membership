@@ -223,6 +223,7 @@ public class FitnessClass {
                     + " - guest location restriction.\n";
         }
 
+        lastAddSuccessful = true;
         ((Family) member).useGuestPass();
         checkedInGuests.add(member);
         return fname + " " + lname + " (guest) checked in " + name.toUpperCase() + " - " +
@@ -235,8 +236,12 @@ public class FitnessClass {
      * @param member Member to remove from participant list
      * @return false if member is not in the class, otherwise true
      */
-    public boolean dropClass(Member member){
-        return checkedInMembers.remove(member);
+    public String dropClass(Member member){
+        if(!contains(member)){
+            return member.getFname() + " " + member.getLname() + " did not check in.";
+        }
+        checkedInMembers.remove(member);
+        return member.getFname() + " " + member.getLname() + " done with the class.";
     }
 
     /**
@@ -244,8 +249,13 @@ public class FitnessClass {
      * @param member Member to remove from guest list
      * @return false if guest of member is not in the class, otherwise true
      */
-    public boolean dropGuestClass(Member member){
-        return checkedInGuests.remove(member);
+    public String dropGuestClass(Member member){
+        if(!containsGuest(member)){
+            return member.getFname() + " " + member.getLname() + " Guest did not check in.\n";
+        }
+        checkedInGuests.remove(member);
+        ((Family) member).incrementGuestPass();
+        return member.getFname() + " " + member.getLname() + " Guest done with the class.";
     }
 
     /**

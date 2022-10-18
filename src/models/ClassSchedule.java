@@ -174,4 +174,18 @@ public class ClassSchedule {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Adds a fitness class to the class schedule
+     * @param fitClass fitness class to the added
+     */
+    public void addClass(FitnessClass fitClass){
+        numClasses++;
+        FitnessClass[] classCopy = new FitnessClass[numClasses];
+        for (int i = 0; i < numClasses - 1; i++){
+            classCopy[i] = classes[i];
+        }
+        classCopy[numClasses - 1] = fitClass;
+        classes = classCopy;
+    }
 }

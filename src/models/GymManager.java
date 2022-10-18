@@ -209,7 +209,6 @@ public class GymManager {
             System.out.println(schedule.handleClassNotExist(new FitnessClass(className, instructor, location)));
             return;
         }
-        FitnessClass fitClass = schedule.getClass(new FitnessClass(className, instructor, location));
         // check if user is registered
         Member member = new Member(fname, lname, dob);
         if(!database.contains(member)){

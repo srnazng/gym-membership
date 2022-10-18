@@ -15,20 +15,55 @@ class FitnessClassTest {
     public void init() throws FileNotFoundException {
         schedule = GymManager.createTestSchedule();
         schedule.loadSchedule();
+        testClass = new FitnessClass("Pilates", "Jennifer", Time.MORNING, Location.toLocation("Bridgewater"));
     }
 
     @Test
-    void testAddMember() {
-        //        Member is added if not already checked in, otherwise is not added
-        FitnessClass testClass = new FitnessClass("Spinning", "Emma", Time.MORNING, Location.toLocation("Franklin"));
-        Member member1 = new Member("John", "Doe", new Date("12/12/2012"), Location.toLocation("Franklin"));
-        Member member2 = new Member("Jane", "Doe", new Date("12/11/2012"), Location.toLocation("Piscataway"));
-        Member member3 = new Member("John", "Doe", new Date("12/12/2013"), Location.toLocation("Piscataway"));
+    void testAddStandardMember() {
+        // Standard members must not already be in the database, and must be checking in at the same location
+        // as where they live
+        Member member1 = new Member("Standard", "A", new Date("12/12/2012"), Location.toLocation("Bridgewater"));
+        Member member2 = new Member("Standard", "B", new Date("12/11/2012"), Location.toLocation("Piscataway"));
+        Member member3 = new Member("Standard", "C", new Date("12/12/1986"), Location.toLocation("Bridgewater"));
 
-        assertEquals(testClass.add(member1), "John Doe checked in SPINNING - EMMA, 9:30, FRANKLIN");
-        assertEquals(testClass.add(member1), "John Doe already checked in.\n");
-        assertEquals(testClass.add(member2), "Jane Doe checking in FRANKLIN, 08873, SOMERSET - standard membership location restriction.\n");
+        testClass.add(member1);
 
+        //Member must not already be checked in to class
+        assertEquals(testClass.add(member1),
+                "Standard A already checked in.\n");
+
+        //Member must be in the same location as class
+        assertEquals(testClass.add(member2),
+                "Standard B checking in BRIDGEWATER, 08807, SOMERSET - standard membership location restriction.\n");
+
+        //Success
+        assertEquals(testClass.add(member3),
+                "Standard C checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+    }
+
+    @Test
+    void testAddFamilyMember(){
+        // Family and Premium members do not have to be in the same location as class
+        Member member1 = new Family("Family", "A", new Date("12/11/2012"), Location.toLocation("Piscataway"));
+
+        //Success
+        assertEquals(testClass.add(member1),
+                "Family A checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+    }
+
+    @Test
+    void testAddMemberTimeConflict(){
+        //A member can't check into two different classes that occur at the same time
+        Member member1 = new Family("Standard", "A", new Date("12/12/2012"), Location.toLocation("Franklin"));
+        FitnessClass otherClass = schedule.getClass(new FitnessClass("Pilates", "Kim", "Franklin"));
+        otherClass.add(member1);
+        assertEquals(testClass.add(member1),
+              "Time conflict - PILATES - JENNIFER, 9:30, BRIDGEWATER, 08807, SOMERSET\n");
+
+        //Success
+        FitnessClass otherClass2 = schedule.getClass(new FitnessClass("Spinning", "Kim", "Franklin"));
+        assertEquals(otherClass2.add(member1),
+                "Standard A checked in SPINNING - KIM, 14:00, FRANKLIN");
     }
 
     @Test
@@ -77,9 +112,31 @@ class FitnessClassTest {
 
     @Test
     void dropClass() {
+        //Test dropping class for member, need to be in checked in list to drop.
+        Member member1 = new Member("Standard", "A", new Date("12/12/2012"), Location.toLocation("Bridgewater"));
+        Member member2 = new Member("Standard", "B", new Date("12/11/2012"), Location.toLocation("Bridgewater"));
+        testClass.add(member1);
+
+        //Cannot drop class if you are not already checked in
+        assertEquals(testClass.dropClass(member2), "Standard B did not check in.");
+
+        //Success
+        assertEquals(testClass.dropClass(member1), "Standard A done with the class.");
     }
 
     @Test
     void dropGuestClass() {
+        //Test dropping class for guest of member, need to be in checked in list to drop.
+        Member member1 = new Family("Family", "A", new Date("12/12/2012"), Location.toLocation("Bridgewater"));
+        Member member2 = new Family("Family", "B", new Date("12/11/2012"), Location.toLocation("Bridgewater"));
+
+        //Success
+        testClass.addGuest(member1);
+        assertEquals(testClass.dropGuestClass(member1),
+                "Family A Guest done with the class.");
+
+        //A guest cannot drop class if not checked in under member
+        assertEquals(testClass.dropGuestClass(member2),
+                "Family B Guest did not check in.\n");
     }
 }
