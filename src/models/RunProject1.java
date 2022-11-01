@@ -1,5 +1,4 @@
 package models;
-import java.io.FileNotFoundException;
 
 /**
  * RunProject1 is the driver class

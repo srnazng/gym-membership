@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="parameters of MemberDatabase.java">
-      <change afterPath="$PROJECT_DIR$/src/models/Plans.java" afterDir="false" />
+    <list default="true" id="30a302c1-84c4-43db-abce-510673199f0d" name="Changes" comment="done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allpackages-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/element-list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
@@ -27,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-20.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-20.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-21.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-21.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-22.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-22.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-23.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-23.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
@@ -35,44 +34,34 @@
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/ClassSchedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/ClassSchedule.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Constants.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Constants.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Date.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Date.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Family.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Family.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/FitnessClass.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/GymManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/GymManager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Location.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Location.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Member.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Member.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/MemberDatabase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Month.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Month.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Plans.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Plans.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/models/Premium.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Premium.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/RunProject1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/RunProject1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/Time.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/Time.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/models/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/package-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/package-search-index.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/system-properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/system-properties.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tests/DateTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tests/DateTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tests/FitnessClassTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tests/FitnessClassTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tests/PremiumTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tests/PremiumTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tests/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tests/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/tests/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/tests/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/ClassSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Family.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Premium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Premium.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RunProject1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/PremiumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/PremiumTest.java" afterDir="false" />
-    </list>
-    <list id="2d1a4849-e994-4ab3-8787-7af864beba08" name="Changes by Jackson" comment="Changes by Jackson">
-      <change beforePath="$PROJECT_DIR$/src/models/ClassSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClassSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Family.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GymManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Premium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Premium.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/FitnessClassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,125 +79,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/tests/FitnessClassTest.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="11" end1="18" start2="11" end2="16" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="19" end1="19" start2="17" end2="18" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="22" end1="28" start2="21" end2="29" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="29" end1="32" start2="30" end2="33" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="33" end1="33" start2="34" end2="41" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="34" end1="34" start2="42" end2="67" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="36" end1="38" start2="69" end2="73" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="39" end1="39" start2="74" end2="111" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="42" end1="42" start2="114" end2="124" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="46" end1="46" start2="128" end2="140" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/MemberDatabase.java">
-      <ranges>
-        <range start1="3" end1="4" start2="3" end2="3" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="101" end1="102" start2="100" end2="101" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="114" end1="114" start2="113" end2="117" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="230" end1="231" start2="233" end2="233" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="232" end1="235" start2="234" end2="238" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="236" end1="245" start2="239" end2="248" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="246" end1="257" start2="249" end2="260" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="258" end1="261" start2="261" end2="268" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/Premium.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="11" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="5" end1="5" start2="12" end2="19" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="10" end1="10" start2="24" end2="28" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="15" end1="15" start2="33" end2="37" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/ClassSchedule.java">
-      <ranges>
-        <range start1="49" end1="53" start2="49" end2="49" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="128" end1="129" start2="124" end2="125" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="144" end1="145" start2="140" end2="140" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="146" end1="149" start2="141" end2="145" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="150" end1="155" start2="146" end2="174" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="156" end1="175" start2="175" end2="175" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="176" end1="176" start2="176" end2="190" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/FitnessClass.java">
-      <ranges>
-        <range start1="19" end1="21" start2="19" end2="20" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="38" end1="38" start2="37" end2="43" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="44" end1="44" start2="49" end2="56" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="62" end1="70" start2="74" end2="74" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="77" end1="77" start2="81" end2="86" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="131" end1="131" start2="140" end2="144" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="157" end1="158" start2="170" end2="171" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="165" end1="165" start2="178" end2="183" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="166" end1="167" start2="184" end2="184" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="168" end1="169" start2="185" end2="186" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="170" end1="170" start2="187" end2="203" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="180" end1="181" start2="213" end2="214" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="192" end1="192" start2="225" end2="226" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="194" end1="195" start2="228" end2="228" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="196" end1="197" start2="229" end2="230" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="205" end1="207" start2="238" end2="244" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="214" end1="216" start2="251" end2="258" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="218" end1="218" start2="260" end2="265" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="222" end1="222" start2="269" end2="274" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/Family.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="10" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="10" end1="10" start2="18" end2="22" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="15" end1="15" start2="27" end2="31" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="23" end1="23" start2="39" end2="43" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="27" end1="27" start2="47" end2="51" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="31" end1="31" start2="55" end2="59" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/models/GymManager.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="2" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="22" end1="23" start2="21" end2="21" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="24" end1="26" start2="22" end2="32" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="32" end1="33" start2="38" end2="39" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="48" end1="49" start2="54" end2="54" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="57" end1="58" start2="62" end2="63" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="61" end1="64" start2="66" end2="69" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="82" end1="83" start2="87" end2="89" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="85" end1="86" start2="91" end2="92" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="101" end1="111" start2="107" end2="110" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="133" end1="134" start2="132" end2="133" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="135" end1="136" start2="134" end2="135" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="137" end1="138" start2="136" end2="137" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="146" end1="147" start2="145" end2="146" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="151" end1="152" start2="150" end2="151" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="155" end1="156" start2="154" end2="155" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="159" end1="160" start2="158" end2="159" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="163" end1="164" start2="162" end2="163" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="166" end1="171" start2="165" end2="165" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="175" end1="176" start2="169" end2="170" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="179" end1="180" start2="173" end2="173" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="192" end1="193" start2="185" end2="186" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="194" end1="195" start2="187" end2="188" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="196" end1="197" start2="189" end2="190" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="208" end1="209" start2="201" end2="202" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="212" end1="213" start2="205" end2="206" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="216" end1="217" start2="209" end2="210" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="218" end1="219" start2="211" end2="211" changelist="2d1a4849-e994-4ab3-8787-7af864beba08" />
-        <range start1="223" end1="224" start2="215" end2="216" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="226" end1="245" start2="218" end2="221" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="266" end1="266" start2="242" end2="247" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="280" end1="281" start2="261" end2="261" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="282" end1="287" start2="262" end2="264" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-        <range start1="288" end1="298" start2="265" end2="268" changelist="30a302c1-84c4-43db-abce-510673199f0d" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -230,11 +100,13 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -315,10 +187,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FitnessClassTest" />
         <item itemvalue="Application.RunProject1" />
         <item itemvalue="JUnit.PremiumTest" />
         <item itemvalue="JUnit.DateTest" />
-        <item itemvalue="JUnit.FitnessClassTest" />
         <item itemvalue="JUnit.FitnessClassTest.dropClass" />
       </list>
     </recent_temporary>
@@ -437,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666034020545</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="done">
+      <created>1666054107342</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1666054107342</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changes by Jackson">
+      <created>1666054123154</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1666054123154</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,24 +342,14 @@
     <MESSAGE value="set up classes" />
     <MESSAGE value="Jackson changes" />
     <MESSAGE value="serena edits" />
-    <MESSAGE value="Changes by Jackson" />
     <MESSAGE value="Pushed Unit Tests" />
     <MESSAGE value="Did line stuff and fixed prices" />
     <MESSAGE value="stuffs" />
     <MESSAGE value="one or less parameter in ClassSchedule" />
     <MESSAGE value="Testing" />
     <MESSAGE value="parameters of MemberDatabase.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="parameters of MemberDatabase.java" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/models/RunProject1.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="done" />
+    <MESSAGE value="Changes by Jackson" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Jackson" />
   </component>
 </project>

@@ -38,7 +38,7 @@ class FitnessClassTest {
 
         //Success
         assertEquals(testClass.add(member3),
-                "Standard C checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+                "Standard C checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
     }
 
     @Test
@@ -48,7 +48,7 @@ class FitnessClassTest {
 
         //Success
         assertEquals(testClass.add(member1),
-                "Family A checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+                "Family A checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
     }
 
     @Test
@@ -63,7 +63,7 @@ class FitnessClassTest {
         //Success
         FitnessClass otherClass2 = schedule.getClass(new FitnessClass("Spinning", "Kim", "Franklin"));
         assertEquals(otherClass2.add(member1),
-                "Standard A checked in SPINNING - KIM, 14:00, FRANKLIN");
+                "Standard A checked in SPINNING - KIM, 14:00, FRANKLIN\n");
     }
 
     @Test
@@ -83,7 +83,7 @@ class FitnessClassTest {
 
         //Once the previous guest is done with the class, the guest pass can again be used
         testClass.dropGuestClass(member1);
-        assertEquals(testClass.addGuest(member1), "Family A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+        assertEquals(testClass.addGuest(member1), "Family A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
     }
 
     @Test
@@ -92,13 +92,13 @@ class FitnessClassTest {
 
         //A member under the Family plan has 3 guest passes
         testClass.addGuest(member1);
-        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
-        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
         assertEquals(testClass.addGuest(member1), "Premium A ran out of guest pass.\n");
 
         //Once the previous guest is done with the class, the guest pass can again be used
         testClass.dropGuestClass(member1);
-        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER");
+        assertEquals(testClass.addGuest(member1), "Premium A (guest) checked in PILATES - JENNIFER, 9:30, BRIDGEWATER\n");
     }
 
     @Test
